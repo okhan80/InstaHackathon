@@ -17,7 +17,12 @@
 		C1167A2215DAD2BA0091A0C1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1167A2015DAD2BA0091A0C1 /* MainStoryboard.storyboard */; };
 		C1167A2515DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1167A2315DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld */; };
 		C1167A2815DAD2BA0091A0C1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1167A2715DAD2BA0091A0C1 /* MainViewController.m */; };
-		C1167A2B15DAD2BA0091A0C1 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1167A2A15DAD2BA0091A0C1 /* FlipsideViewController.m */; };
+		C1167A3615DADAFC0091A0C1 /* HACKATHON_Header_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = C1167A3515DADAFC0091A0C1 /* HACKATHON_Header_logo.png */; };
+		C1167A4015DAE0F20091A0C1 /* 7de876_mortal_kombat.png in Resources */ = {isa = PBXBuildFile; fileRef = C1167A3F15DAE0F20091A0C1 /* 7de876_mortal_kombat.png */; };
+		C1167A4215DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C1167A4115DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 */; };
+		C1167A4415DAE39F0091A0C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A4315DAE39F0091A0C1 /* AudioToolbox.framework */; };
+		C120E83D15DAE4D700ADD9E3 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E83C15DAE4D700ADD9E3 /* TeamViewController.m */; };
+		C120E83F15DAEB9500ADD9E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +41,13 @@
 		C1167A2415DAD2BA0091A0C1 /* InstaHackathon.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstaHackathon.xcdatamodel; sourceTree = "<group>"; };
 		C1167A2615DAD2BA0091A0C1 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C1167A2715DAD2BA0091A0C1 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		C1167A2915DAD2BA0091A0C1 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
-		C1167A2A15DAD2BA0091A0C1 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		C1167A3515DADAFC0091A0C1 /* HACKATHON_Header_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HACKATHON_Header_logo.png; sourceTree = "<group>"; };
+		C1167A3F15DAE0F20091A0C1 /* 7de876_mortal_kombat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7de876_mortal_kombat.png; sourceTree = "<group>"; };
+		C1167A4115DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3; sourceTree = "<group>"; };
+		C1167A4315DAE39F0091A0C1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C120E83B15DAE4D700ADD9E3 /* TeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamViewController.h; sourceTree = "<group>"; };
+		C120E83C15DAE4D700ADD9E3 /* TeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamViewController.m; sourceTree = "<group>"; };
+		C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C120E83F15DAEB9500ADD9E3 /* AVFoundation.framework in Frameworks */,
+				C1167A4415DAE39F0091A0C1 /* AudioToolbox.framework in Frameworks */,
 				C1167A0D15DAD2BA0091A0C1 /* UIKit.framework in Frameworks */,
 				C1167A0F15DAD2BA0091A0C1 /* Foundation.framework in Frameworks */,
 				C1167A1115DAD2BA0091A0C1 /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +70,7 @@
 		C11679FD15DAD2BA0091A0C1 = {
 			isa = PBXGroup;
 			children = (
+				C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */,
 				C1167A1415DAD2BA0091A0C1 /* InstaHackathon */,
 				C1167A0B15DAD2BA0091A0C1 /* Frameworks */,
 				C1167A0915DAD2BA0091A0C1 /* Products */,
@@ -75,6 +88,7 @@
 		C1167A0B15DAD2BA0091A0C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1167A4315DAE39F0091A0C1 /* AudioToolbox.framework */,
 				C1167A0C15DAD2BA0091A0C1 /* UIKit.framework */,
 				C1167A0E15DAD2BA0091A0C1 /* Foundation.framework */,
 				C1167A1015DAD2BA0091A0C1 /* CoreGraphics.framework */,
@@ -86,14 +100,10 @@
 		C1167A1415DAD2BA0091A0C1 /* InstaHackathon */ = {
 			isa = PBXGroup;
 			children = (
-				C1167A1D15DAD2BA0091A0C1 /* AppDelegate.h */,
-				C1167A1E15DAD2BA0091A0C1 /* AppDelegate.m */,
-				C1167A2015DAD2BA0091A0C1 /* MainStoryboard.storyboard */,
-				C1167A2615DAD2BA0091A0C1 /* MainViewController.h */,
-				C1167A2715DAD2BA0091A0C1 /* MainViewController.m */,
-				C1167A2915DAD2BA0091A0C1 /* FlipsideViewController.h */,
-				C1167A2A15DAD2BA0091A0C1 /* FlipsideViewController.m */,
-				C1167A2315DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld */,
+				C1167A3415DADAED0091A0C1 /* Resources */,
+				C1167A3315DAD84A0091A0C1 /* Team Choice Page */,
+				C1167A3215DAD8450091A0C1 /* Results Page */,
+				C1167A3115DAD8200091A0C1 /* Start Page */,
 				C1167A1515DAD2BA0091A0C1 /* Supporting Files */,
 			);
 			path = InstaHackathon;
@@ -102,12 +112,51 @@
 		C1167A1515DAD2BA0091A0C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C1167A1D15DAD2BA0091A0C1 /* AppDelegate.h */,
+				C1167A1E15DAD2BA0091A0C1 /* AppDelegate.m */,
+				C1167A2015DAD2BA0091A0C1 /* MainStoryboard.storyboard */,
+				C1167A2315DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld */,
 				C1167A1615DAD2BA0091A0C1 /* InstaHackathon-Info.plist */,
 				C1167A1715DAD2BA0091A0C1 /* InfoPlist.strings */,
 				C1167A1A15DAD2BA0091A0C1 /* main.m */,
 				C1167A1C15DAD2BA0091A0C1 /* InstaHackathon-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C1167A3115DAD8200091A0C1 /* Start Page */ = {
+			isa = PBXGroup;
+			children = (
+				C1167A2615DAD2BA0091A0C1 /* MainViewController.h */,
+				C1167A2715DAD2BA0091A0C1 /* MainViewController.m */,
+			);
+			name = "Start Page";
+			sourceTree = "<group>";
+		};
+		C1167A3215DAD8450091A0C1 /* Results Page */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Results Page";
+			sourceTree = "<group>";
+		};
+		C1167A3315DAD84A0091A0C1 /* Team Choice Page */ = {
+			isa = PBXGroup;
+			children = (
+				C120E83B15DAE4D700ADD9E3 /* TeamViewController.h */,
+				C120E83C15DAE4D700ADD9E3 /* TeamViewController.m */,
+			);
+			name = "Team Choice Page";
+			sourceTree = "<group>";
+		};
+		C1167A3415DADAED0091A0C1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C1167A4115DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 */,
+				C1167A3F15DAE0F20091A0C1 /* 7de876_mortal_kombat.png */,
+				C1167A3515DADAFC0091A0C1 /* HACKATHON_Header_logo.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +212,9 @@
 			files = (
 				C1167A1915DAD2BA0091A0C1 /* InfoPlist.strings in Resources */,
 				C1167A2215DAD2BA0091A0C1 /* MainStoryboard.storyboard in Resources */,
+				C1167A3615DADAFC0091A0C1 /* HACKATHON_Header_logo.png in Resources */,
+				C1167A4015DAE0F20091A0C1 /* 7de876_mortal_kombat.png in Resources */,
+				C1167A4215DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +229,7 @@
 				C1167A1F15DAD2BA0091A0C1 /* AppDelegate.m in Sources */,
 				C1167A2515DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld in Sources */,
 				C1167A2815DAD2BA0091A0C1 /* MainViewController.m in Sources */,
-				C1167A2B15DAD2BA0091A0C1 /* FlipsideViewController.m in Sources */,
+				C120E83D15DAE4D700ADD9E3 /* TeamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +347,7 @@
 				C1167A3015DAD2BA0091A0C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

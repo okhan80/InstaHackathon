@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "TeamViewController.h"
 
 @interface MainViewController ()
 
@@ -14,54 +15,16 @@
 
 @implementation MainViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return YES;
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
-#pragma mark - Flipside View Controller
-
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-    [self.flipsidePopoverController dismissPopoverAnimated:YES];
-    self.flipsidePopoverController = nil;
-}
-
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    self.flipsidePopoverController = nil;
+- (IBAction)startDraftButtonPressed:(id)sender {
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
-        UIPopoverController *popoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
-        self.flipsidePopoverController = popoverController;
-        popoverController.delegate = self;
-    }
-}
 
-- (IBAction)togglePopover:(id)sender
-{
-    if (self.flipsidePopoverController) {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    } else {
-        [self performSegueWithIdentifier:@"showAlternate" sender:sender];
-    }
 }
-
 @end
