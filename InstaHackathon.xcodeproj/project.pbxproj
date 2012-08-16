@@ -23,6 +23,12 @@
 		C1167A4415DAE39F0091A0C1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A4315DAE39F0091A0C1 /* AudioToolbox.framework */; };
 		C120E83D15DAE4D700ADD9E3 /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E83C15DAE4D700ADD9E3 /* TeamViewController.m */; };
 		C120E83F15DAEB9500ADD9E3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */; };
+		C120E84A15DBF47B00ADD9E3 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E84915DBF47B00ADD9E3 /* Event.m */; };
+		C120E84D15DBF49600ADD9E3 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E84C15DBF49600ADD9E3 /* Team.m */; };
+		C120E85015DBF4B500ADD9E3 /* TeamMember.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E84F15DBF4B500ADD9E3 /* TeamMember.m */; };
+		C120E86315DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E86215DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m */; };
+		C120E86A15DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E86915DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m */; };
+		C120E88515DD41E500ADD9E3 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E88415DD41E500ADD9E3 /* Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +54,18 @@
 		C120E83B15DAE4D700ADD9E3 /* TeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamViewController.h; sourceTree = "<group>"; };
 		C120E83C15DAE4D700ADD9E3 /* TeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamViewController.m; sourceTree = "<group>"; };
 		C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C120E84815DBF47B00ADD9E3 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		C120E84915DBF47B00ADD9E3 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		C120E84B15DBF49600ADD9E3 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		C120E84C15DBF49600ADD9E3 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		C120E84E15DBF4B500ADD9E3 /* TeamMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamMember.h; sourceTree = "<group>"; };
+		C120E84F15DBF4B500ADD9E3 /* TeamMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamMember.m; sourceTree = "<group>"; };
+		C120E86115DBFF1300ADD9E3 /* NSDictionary+JSONCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONCategories.h"; sourceTree = "<group>"; };
+		C120E86215DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONCategories.m"; sourceTree = "<group>"; };
+		C120E86815DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSONDataRepresentation.h"; sourceTree = "<group>"; };
+		C120E86915DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONDataRepresentation.m"; sourceTree = "<group>"; };
+		C120E88315DD41E500ADD9E3 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		C120E88415DD41E500ADD9E3 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +88,6 @@
 		C11679FD15DAD2BA0091A0C1 = {
 			isa = PBXGroup;
 			children = (
-				C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */,
 				C1167A1415DAD2BA0091A0C1 /* InstaHackathon */,
 				C1167A0B15DAD2BA0091A0C1 /* Frameworks */,
 				C1167A0915DAD2BA0091A0C1 /* Products */,
@@ -88,6 +105,7 @@
 		C1167A0B15DAD2BA0091A0C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C120E83E15DAEB9500ADD9E3 /* AVFoundation.framework */,
 				C1167A4315DAE39F0091A0C1 /* AudioToolbox.framework */,
 				C1167A0C15DAD2BA0091A0C1 /* UIKit.framework */,
 				C1167A0E15DAD2BA0091A0C1 /* Foundation.framework */,
@@ -100,6 +118,7 @@
 		C1167A1415DAD2BA0091A0C1 /* InstaHackathon */ = {
 			isa = PBXGroup;
 			children = (
+				C120E84715DBF44800ADD9E3 /* Core Data */,
 				C1167A3415DADAED0091A0C1 /* Resources */,
 				C1167A3315DAD84A0091A0C1 /* Team Choice Page */,
 				C1167A3215DAD8450091A0C1 /* Results Page */,
@@ -112,10 +131,13 @@
 		C1167A1515DAD2BA0091A0C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C120E86815DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.h */,
+				C120E86915DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m */,
+				C120E86115DBFF1300ADD9E3 /* NSDictionary+JSONCategories.h */,
+				C120E86215DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m */,
 				C1167A1D15DAD2BA0091A0C1 /* AppDelegate.h */,
 				C1167A1E15DAD2BA0091A0C1 /* AppDelegate.m */,
 				C1167A2015DAD2BA0091A0C1 /* MainStoryboard.storyboard */,
-				C1167A2315DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld */,
 				C1167A1615DAD2BA0091A0C1 /* InstaHackathon-Info.plist */,
 				C1167A1715DAD2BA0091A0C1 /* InfoPlist.strings */,
 				C1167A1A15DAD2BA0091A0C1 /* main.m */,
@@ -157,6 +179,22 @@
 				C1167A3515DADAFC0091A0C1 /* HACKATHON_Header_logo.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C120E84715DBF44800ADD9E3 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				C120E88315DD41E500ADD9E3 /* Category.h */,
+				C120E88415DD41E500ADD9E3 /* Category.m */,
+				C1167A2315DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld */,
+				C120E84E15DBF4B500ADD9E3 /* TeamMember.h */,
+				C120E84F15DBF4B500ADD9E3 /* TeamMember.m */,
+				C120E84B15DBF49600ADD9E3 /* Team.h */,
+				C120E84C15DBF49600ADD9E3 /* Team.m */,
+				C120E84815DBF47B00ADD9E3 /* Event.h */,
+				C120E84915DBF47B00ADD9E3 /* Event.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +268,12 @@
 				C1167A2515DAD2BA0091A0C1 /* InstaHackathon.xcdatamodeld in Sources */,
 				C1167A2815DAD2BA0091A0C1 /* MainViewController.m in Sources */,
 				C120E83D15DAE4D700ADD9E3 /* TeamViewController.m in Sources */,
+				C120E84A15DBF47B00ADD9E3 /* Event.m in Sources */,
+				C120E84D15DBF49600ADD9E3 /* Team.m in Sources */,
+				C120E85015DBF4B500ADD9E3 /* TeamMember.m in Sources */,
+				C120E86315DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m in Sources */,
+				C120E86A15DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m in Sources */,
+				C120E88515DD41E500ADD9E3 /* Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,5 +9,6 @@
 @interface MainViewController : UIViewController
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @end

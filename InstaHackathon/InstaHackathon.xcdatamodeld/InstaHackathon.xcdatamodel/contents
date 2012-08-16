@@ -1,4 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="eventID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hackathonCategoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hackathonEvent" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="selectedTeam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="chosenCategory" inverseEntity="Team" syncable="YES"/>
+        <relationship name="theEvent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="categoryList" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="Event" representedClassName="Event" syncable="YES">
+        <attribute name="categorySelections" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="eventDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hackathonEventId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="roundTimeSeconds" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="categoryList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="theEvent" inverseEntity="Category" syncable="YES"/>
+        <relationship name="teamList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="theEvent" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES">
+        <attribute name="draftOrder" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="hackathonCategoryId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hackathonEventId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chosenCategory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="selectedTeam" inverseEntity="Category" syncable="YES"/>
+        <relationship name="teamMemberList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TeamMember" inverseName="theTeam" inverseEntity="TeamMember" syncable="YES"/>
+        <relationship name="theEvent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="teamList" inverseEntity="Event" syncable="YES"/>
+    </entity>
+    <entity name="TeamMember" representedClassName="TeamMember" syncable="YES">
+        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamMemberId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="theTeam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamMemberList" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="369" positionY="89" width="128" height="118"/>
+        <element name="Event" positionX="583" positionY="108" width="128" height="148"/>
+        <element name="Team" positionX="315" positionY="333" width="128" height="163"/>
+        <element name="TeamMember" positionX="-9" positionY="134" width="128" height="118"/>
+    </elements>
 </model>
