@@ -13,9 +13,9 @@
 
 @interface Category : NSManagedObject
 
-@property (nonatomic, retain) NSString * hackathonEvent;
-@property (nonatomic, retain) NSString * eventID;
+@property (nonatomic, retain) NSString * categoryName;
 @property (nonatomic, retain) NSString * hackathonCategoryId;
+@property (nonatomic, retain) NSString * hackathonEventId;
 @property (nonatomic, retain) Team *selectedTeam;
 @property (nonatomic, retain) Event *theEvent;
 

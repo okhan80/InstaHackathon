@@ -35,3 +35,9 @@
 - (void)removeTeamList:(NSSet *)values;
 
 @end
+
+@interface Event (safeSetValuesKeysWithDictionary)
+
+- (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues dateFormatter:(NSDateFormatter *)dateFormatter;
+
+@end

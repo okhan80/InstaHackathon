@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="12A269" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Category" representedClassName="Category" syncable="YES">
-        <attribute name="eventID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hackathonCategoryId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="hackathonEvent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hackathonEventId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="selectedTeam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="chosenCategory" inverseEntity="Team" syncable="YES"/>
         <relationship name="theEvent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="categoryList" inverseEntity="Event" syncable="YES"/>
     </entity>
@@ -22,6 +22,7 @@
         <attribute name="hackathonEventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teamId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamOptions" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="chosenCategory" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="selectedTeam" inverseEntity="Category" syncable="YES"/>
         <relationship name="teamMemberList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TeamMember" inverseName="theTeam" inverseEntity="TeamMember" syncable="YES"/>
         <relationship name="theEvent" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="teamList" inverseEntity="Event" syncable="YES"/>
@@ -34,9 +35,9 @@
         <relationship name="theTeam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamMemberList" inverseEntity="Team" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="369" positionY="89" width="128" height="118"/>
-        <element name="Event" positionX="583" positionY="108" width="128" height="148"/>
-        <element name="Team" positionX="315" positionY="333" width="128" height="163"/>
-        <element name="TeamMember" positionX="-9" positionY="134" width="128" height="118"/>
+        <element name="Category" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Team" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="TeamMember" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

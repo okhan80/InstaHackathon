@@ -13,9 +13,9 @@
 
 @implementation Category
 
-@dynamic hackathonEvent;
-@dynamic eventID;
+@dynamic categoryName;
 @dynamic hackathonCategoryId;
+@dynamic hackathonEventId;
 @dynamic selectedTeam;
 @dynamic theEvent;
 

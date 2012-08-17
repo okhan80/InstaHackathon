@@ -2,7 +2,7 @@
 //  Team.m
 //  InstaHackathon
 //
-//  Created by Omar Khan on 8/16/12.
+//  Created by Omar Khan on 8/17/12.
 //  Copyright (c) 2012 SPARC. All rights reserved.
 //
 
@@ -15,12 +15,13 @@
 @implementation Team
 
 @dynamic draftOrder;
+@dynamic hackathonCategoryId;
 @dynamic hackathonEventId;
 @dynamic teamId;
 @dynamic teamName;
-@dynamic hackathonCategoryId;
-@dynamic teamMemberList;
+@dynamic teamOptions;
 @dynamic chosenCategory;
+@dynamic teamMemberList;
 @dynamic theEvent;
 
 @end
