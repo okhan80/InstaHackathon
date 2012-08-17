@@ -8,6 +8,7 @@
 
 #import "TeamViewController.h"
 #import "Category.h"
+#import "Team.h"
 
 
 @interface TeamViewController ()
@@ -28,6 +29,8 @@
 @synthesize countDownTimer = _countDownTimer;
 @synthesize countDown = _countDown;
 @synthesize currentEvent = _currentEvent;
+@synthesize categorySet = _categorySet;
+@synthesize teamSet = _teamSet;
 
 #pragma mark - Initialization
 - (void)setCurrentEvent:(Event *)currentEvent
@@ -36,9 +39,8 @@
         _currentEvent = currentEvent;
     }
     //  Test variables
-    NSSet *categorySet = [currentEvent categoryList];
-    NSSet *teamSet = [currentEvent teamList];
-    
+    _categorySet = [NSMutableArray arrayWithArray:[[currentEvent categoryList] allObjects]];
+    _teamSet = [NSMutableArray arrayWithArray:[[currentEvent teamList] allObjects]];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -55,6 +57,31 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self startCountDown];
+    
+    NSArray *sortedTeamArray;
+    sortedTeamArray = [_teamSet sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSNumber *first = [(Team*)a draftOrder];
+        NSNumber *second = [(Team*)b draftOrder];
+        return [first compare:second];
+    }];
+    
+    Team *team = [sortedTeamArray objectAtIndex:0];
+    self.teamNameLabel.text = team.teamName;
+    
+    [self displayCategories:self:team];
+}
+
+- (void)displayCategories:forTeam:(Team*)team {
+    if([team.teamOptions intValue]==2){
+        _thirdCategoryButton.hidden = true;
+        _fourthCategoryButton.hidden = true;
+    }
+    if([team.teamOptions intValue]>2){
+        _thirdCategoryButton.hidden = false;
+    }
+    if([team.teamOptions intValue]>3){
+        _fourthCategoryButton.hidden = false;
+    }
 }
 
 - (void)viewDidUnload
@@ -109,12 +136,12 @@
     self.countDownLabel.hidden = YES;
 }
 - (IBAction)chooseDestinyButtonClicked:(id)sender {
-//    CFBundleRef mainBundle = CFBundleGetMainBundle();
-//    CFURLRef soundFileURLRef;
-//    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect", CFSTR("mp3"), NULL);
-//    UInt32 soundID;
-//    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
-//    AudioServicesPlaySystemSound(soundID);
+    //    CFBundleRef mainBundle = CFBundleGetMainBundle();
+    //    CFURLRef soundFileURLRef;
+    //    soundFileURLRef = CFBundleCopyResourceURL(mainBundle, (CFStringRef) @"3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect", CFSTR("mp3"), NULL);
+    //    UInt32 soundID;
+    //    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
+    //    AudioServicesPlaySystemSound(soundID);
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect"
                                                                         ofType:@"mp3"]];
     
@@ -123,7 +150,7 @@
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self.audioPlayer play];
-                  
+    
 }
 
 //NSString *msg = [NSString stringWithFormat:@"Hello %@ %@, %@ has arrived at the front desk.", [self.pointOfContactSelected objectForKey:@"firstName"], [self.pointOfContactSelected objectForKey:@"lastName"], self.guestItem.firstName];

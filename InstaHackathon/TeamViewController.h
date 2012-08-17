@@ -31,4 +31,8 @@
 @property (strong, nonatomic) NSTimer *countDownTimer;
 @property (nonatomic) int countDown;
 
+//Event properties
+@property (strong, nonatomic) NSMutableArray *categorySet;
+@property (strong, nonatomic) NSMutableArray *teamSet;
+
 @end
