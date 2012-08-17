@@ -40,7 +40,15 @@
     }
     //  Test variables
     _categorySet = [NSMutableArray arrayWithArray:[[currentEvent categoryList] allObjects]];
-    _teamSet = [NSMutableArray arrayWithArray:[[currentEvent teamList] allObjects]];
+    
+    NSArray *sortedTeamArray;
+    sortedTeamArray = [[[currentEvent teamList] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSNumber *first = [(Team*)a draftOrder];
+        NSNumber *second = [(Team*)b draftOrder];
+        return [first compare:second];
+    }];
+    
+    _teamSet = sortedTeamArray;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -58,30 +66,10 @@
 	// Do any additional setup after loading the view.
     [self startCountDown];
     
-    NSArray *sortedTeamArray;
-    sortedTeamArray = [_teamSet sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        NSNumber *first = [(Team*)a draftOrder];
-        NSNumber *second = [(Team*)b draftOrder];
-        return [first compare:second];
-    }];
-    
-    Team *team = [sortedTeamArray objectAtIndex:0];
+    Team *team = [_teamSet objectAtIndex:0];
     self.teamNameLabel.text = team.teamName;
     
     [self displayCategories:self:team];
-}
-
-- (void)displayCategories:forTeam:(Team*)team {
-    if([team.teamOptions intValue]==2){
-        _thirdCategoryButton.hidden = true;
-        _fourthCategoryButton.hidden = true;
-    }
-    if([team.teamOptions intValue]>2){
-        _thirdCategoryButton.hidden = false;
-    }
-    if([team.teamOptions intValue]>3){
-        _fourthCategoryButton.hidden = false;
-    }
 }
 
 - (void)viewDidUnload
@@ -95,6 +83,20 @@
     [self setTeamNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)displayCategories:forTeam:(Team*)team {
+    
+    if([team.teamOptions intValue]==2){
+        _thirdCategoryButton.hidden = true;
+        _fourthCategoryButton.hidden = true;
+    }
+    if([team.teamOptions intValue]>2){
+        _thirdCategoryButton.hidden = false;
+    }
+    if([team.teamOptions intValue]>3){
+        _fourthCategoryButton.hidden = false;
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

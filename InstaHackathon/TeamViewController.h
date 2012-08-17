@@ -33,6 +33,6 @@
 
 //Event properties
 @property (strong, nonatomic) NSMutableArray *categorySet;
-@property (strong, nonatomic) NSMutableArray *teamSet;
+@property (strong, nonatomic) NSArray *teamSet;
 
 @end
