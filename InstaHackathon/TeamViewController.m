@@ -7,6 +7,7 @@
 //
 
 #import "TeamViewController.h"
+#import "Category.h"
 
 
 @interface TeamViewController ()
@@ -20,13 +21,26 @@
 @synthesize secondCategoryButton = _secondCategoryButton;
 @synthesize thirdCategoryButton = _thirdCategoryButton;
 @synthesize fourthCategoryButton = _fourthCategoryButton;
+@synthesize teamNameLabel = _teamNameLabel;
 @synthesize countDownLabel = _countDownLabel;
 @synthesize chooseDestinyButton = _chooseDestinyButton;
 @synthesize audioPlayer = _audioPlayer;
 @synthesize countDownTimer = _countDownTimer;
 @synthesize countDown = _countDown;
+@synthesize currentEvent = _currentEvent;
 
 #pragma mark - Initialization
+- (void)setCurrentEvent:(Event *)currentEvent
+{
+    if(_currentEvent != currentEvent) {
+        _currentEvent = currentEvent;
+    }
+    //  Test variables
+    NSSet *categorySet = [currentEvent categoryList];
+    NSSet *teamSet = [currentEvent teamList];
+    
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -51,6 +65,7 @@
     [self setThirdCategoryButton:nil];
     [self setFourthCategoryButton:nil];
     [self setCountDownLabel:nil];
+    [self setTeamNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -111,4 +126,27 @@
                   
 }
 
+//NSString *msg = [NSString stringWithFormat:@"Hello %@ %@, %@ has arrived at the front desk.", [self.pointOfContactSelected objectForKey:@"firstName"], [self.pointOfContactSelected objectForKey:@"lastName"], self.guestItem.firstName];
+////  Build an info object and convert it to JSON
+//NSDictionary *info = [NSDictionary dictionaryWithObjectsAndKeys:
+//                      kTropoToken,
+//                      @"token",
+//                      [self.pointOfContactSelected objectForKey:@"cellPhone"],
+//                      @"numberToDial",
+//                      msg,
+//                      @"msg",
+//                      nil];
+//
+////  Convert object to data
+//NSData *jsonData = [info toJSON];
+//
+////  Making a URL reqest with the created data
+//NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:kTropoURLSession];
+//[request setHTTPMethod:@"POST"];
+//[request setValue:@"application/json" forHTTPHeaderField:@"accept"];
+//[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//[request setHTTPBody:jsonData];
+//
+////  Sending the request
+//NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
 @end

@@ -52,6 +52,8 @@
     if(![[self.fetchedResultsController fetchedObjects] count] > 0) {
         //  There is nothing in the database so defaults will be inserted
         [self collectEventData];
+    } else {
+        self.hackathonEvent = [[self.fetchedResultsController fetchedObjects] objectAtIndex:0];
     }
     
     //  See if
@@ -71,7 +73,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    if([segue.identifier isEqualToString:@"teamView"]) {
+        [segue.destinationViewController setCurrentEvent:self.hackathonEvent];
+    }
 }
 
 
@@ -186,6 +190,8 @@
             }
             [newTeam setValue:value forKey:attribute];
         }
+        
+        //  Adding the team member to the team
         NSSet *teamMemberSet = [NSSet setWithArray:[self fetchTeamMemberDataUsingTeamID:[dict objectForKey:@"teamId"]]];
         [newTeam addTeamMemberList:teamMemberSet];
         [self.hackathonEvent addTeamListObject:newTeam];
@@ -217,7 +223,7 @@
             [newTeam setValue:value forKey:attribute];
         }
         
-    [teamMemberList addObject:newTeam];
+        [teamMemberList addObject:newTeam];
     }
 
     return teamMemberList;
