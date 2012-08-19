@@ -32,9 +32,11 @@
 @synthesize categorySet = _categorySet;
 @synthesize teamSet = _teamSet;
 
+int teamPosition = 0;
+Team *currentTeam = nil;
+
 #pragma mark - Initialization
-- (void)setCurrentEvent:(Event *)currentEvent
-{
+- (void)setCurrentEvent:(Event *)currentEvent {
     if(_currentEvent != currentEvent) {
         _currentEvent = currentEvent;
     }
@@ -51,8 +53,7 @@
     _teamSet = sortedTeamArray;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -60,20 +61,14 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self startCountDown];
-    
-    Team *team = [_teamSet objectAtIndex:0];
-    self.teamNameLabel.text = team.teamName;
-    
-    [self displayCategories:self:team];
+    [self updateTeamView];
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [self setChooseDestinyButton:nil];
     [self setFirstCategoryButton:nil];
     [self setSecondCategoryButton:nil];
@@ -85,7 +80,22 @@
     // Release any retained subviews of the main view.
 }
 
-/* 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+-(void)updateTeamView {
+    
+    if(teamPosition < [_teamSet count]){
+        currentTeam = [_teamSet objectAtIndex:teamPosition];
+        self.teamNameLabel.text = currentTeam.teamName;
+        [self displayCategories:self:currentTeam];
+    } else {
+        //TODO Segue into final results screen.
+    }
+}
+
+/*
  * Contains UI logic for displaying 1-4 randomized Cateogry Selection Buttons based on the passed in Team's teamOptions and the remaining number of 
  * Hackathon Categories.
  *
@@ -196,14 +206,46 @@
     return randomizedCategories;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+- (IBAction)categoryOneSelected:(id)sender {
+    [self removeSelectedCategory:_firstCategoryButton.currentTitle];
+    [self categoryButtonSelected];
+}
+
+- (IBAction)categoryTwoSelected:(id)sender {
+    [self removeSelectedCategory:_secondCategoryButton.currentTitle];
+    [self categoryButtonSelected];
+}
+
+- (IBAction)categoryThreeSelected:(id)sender {
+    [self removeSelectedCategory:_thirdCategoryButton.currentTitle];
+    [self categoryButtonSelected];
+}
+
+- (IBAction)categoryFourSelected:(id)sender {
+    [self removeSelectedCategory:_fourthCategoryButton.currentTitle];
+    [self categoryButtonSelected];
+}
+
+- (void) removeSelectedCategory:(NSString*) categoryName {
+    
+    if([_categorySet count]>0){
+        for(Category *category in _categorySet){
+            if([[category categoryName] isEqualToString:categoryName]){
+                [_categorySet removeObject:category];
+                break;
+            }
+        }
+    }
+}
+
+- (void) categoryButtonSelected {
+    teamPosition++;
+    [self updateTeamView];
+    [self startCountDown];
 }
 
 #pragma mark - Timer
-- (void)startCountDown
-{
+- (void)startCountDown {
     self.countDown = 30;
     self.countDownLabel.text = [NSString stringWithFormat:@"%d", self.countDown];
     self.countDownLabel.hidden = NO;
@@ -213,12 +255,10 @@
                                                              selector:@selector(updateTime:)
                                                              userInfo:nil
                                                               repeats:YES];
-        
     }
 }
 
-- (void)updateTime:(NSTimer *)timerParam
-{
+- (void)updateTime:(NSTimer *)timerParam {
     self.countDown--;
     if(self.countDown == 0) {
         [self clearCountDownTimer];
@@ -228,12 +268,12 @@
     self.countDownLabel.text = [NSString stringWithFormat:@"%d", self.countDown];
 }
 
-- (void)clearCountDownTimer
-{
+- (void)clearCountDownTimer {
     [self.countDownTimer invalidate];
     self.countDownTimer = nil;
     self.countDownLabel.hidden = YES;
 }
+
 - (IBAction)chooseDestinyButtonClicked:(id)sender {
     //    CFBundleRef mainBundle = CFBundleGetMainBundle();
     //    CFURLRef soundFileURLRef;

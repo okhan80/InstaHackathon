@@ -87,7 +87,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="categoryOneButtonPressed:" destination="fun-da-Cci" eventType="touchUpInside" id="nyQ-Jk-coQ"/>
+                                    <action selector="categoryOneSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="JmE-mJ-xkB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l7G-bs-dQc">
@@ -101,6 +101,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="categoryTwoSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="AZl-RS-hOS"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nGA-Tl-VJb">
                                 <rect key="frame" x="364" y="609" width="297" height="41"/>
@@ -113,9 +116,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="categoryThreeSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="FWb-cU-j3L"/>
+                                </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u6O-gn-km3">
-                                <rect key="frame" x="364" y="657" width="297" height="41"/>
+                                <rect key="frame" x="364" y="658" width="297" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Category 4">
@@ -125,6 +131,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="categoryFourSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="Fcv-5X-0kW"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose your category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="XKa-Io-0Br">
                                 <rect key="frame" x="364" y="449" width="297" height="36"/>
@@ -217,6 +226,10 @@
         <class className="TeamViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
             <relationships>
+                <relationship kind="action" name="categoryFourSelected:"/>
+                <relationship kind="action" name="categoryOneSelected:"/>
+                <relationship kind="action" name="categoryThreeSelected:"/>
+                <relationship kind="action" name="categoryTwoSelected:"/>
                 <relationship kind="action" name="chooseDestinyButtonClicked:"/>
                 <relationship kind="outlet" name="chooseDestinyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
