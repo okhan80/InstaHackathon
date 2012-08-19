@@ -85,18 +85,115 @@
     // Release any retained subviews of the main view.
 }
 
+/* 
+ * Contains UI logic for displaying 1-4 randomized Cateogry Selection Buttons based on the passed in Team's teamOptions and the remaining number of 
+ * Hackathon Categories.
+ *
+ * NOTE: May want to consider a more flexible UI element.
+ */
 - (void)displayCategories:forTeam:(Team*)team {
     
     if([team.teamOptions intValue]==2){
         _thirdCategoryButton.hidden = true;
         _fourthCategoryButton.hidden = true;
+        
+        NSArray *randomizedCategories = [self selectUniqueRandomObjectsFromArray:2 forArray:self.categorySet];
+        
+        if([randomizedCategories count]==2){
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+        } else {
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            _secondCategoryButton.hidden = true;
+        }
     }
-    if([team.teamOptions intValue]>2){
+    
+    if([team.teamOptions intValue]==3){
         _thirdCategoryButton.hidden = false;
+        _fourthCategoryButton.hidden = true;
+        
+        NSArray *randomizedCategories = [self selectUniqueRandomObjectsFromArray:3 forArray:self.categorySet];
+        
+        if([randomizedCategories count]==3){
+            
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [_thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
+            
+        } else if([randomizedCategories count]==2){
+            
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            _thirdCategoryButton.hidden = true;
+            
+        } else if([randomizedCategories count]==1){
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            _secondCategoryButton.hidden = true;
+            _thirdCategoryButton.hidden = true;
+        }
     }
-    if([team.teamOptions intValue]>3){
+    
+    if([team.teamOptions intValue]==4){
+        _thirdCategoryButton.hidden = false;
         _fourthCategoryButton.hidden = false;
+        
+        NSArray *randomizedCategories = [self selectUniqueRandomObjectsFromArray:4 forArray:self.categorySet];
+        
+        if([randomizedCategories count]==4){
+            
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [_thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
+            [_fourthCategoryButton setTitle:[[randomizedCategories objectAtIndex:3] categoryName] forState:UIControlStateNormal];
+            
+        } else if([randomizedCategories count]==3){
+            
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [_thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
+            _fourthCategoryButton.hidden = true;
+            
+        } else if([randomizedCategories count]==2){
+            
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            _thirdCategoryButton.hidden = true;
+            _fourthCategoryButton.hidden = true;
+            
+        } else if([randomizedCategories count]==1){
+            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            _secondCategoryButton.hidden = true;
+            _thirdCategoryButton.hidden = true;
+            _fourthCategoryButton.hidden = true;
+        }
     }
+}
+
+/**
+ * Returns a NSArray of x randomly selected unique object for the passed in array where x = the number of desired random objects.
+ */
+-(NSArray*)selectUniqueRandomObjectsFromArray:(int)numberOfObjects forArray:(NSArray*)array {
+    
+    NSMutableArray *randomizedCategories = [NSMutableArray array];
+    int safeCounter = numberOfObjects;
+    
+    if(numberOfObjects>[array count]){
+        safeCounter = [array count];
+    }
+    
+    for (int i = 0; i < safeCounter; i++) {
+        int randomIndex = arc4random_uniform([_categorySet count]);
+        Category *randomCategory = [_categorySet objectAtIndex:randomIndex];
+        
+        while ([randomizedCategories containsObject:randomCategory]) {
+            randomIndex = arc4random_uniform([_categorySet count]);
+            randomCategory = [_categorySet objectAtIndex:randomIndex];
+        }
+        
+        [randomizedCategories addObject:randomCategory];
+    }
+    
+    return randomizedCategories;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
