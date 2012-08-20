@@ -106,7 +106,7 @@
         [self displayCategoriesForTeam:self.currentTeam];
         
     } else {
-        //TODO Segue into final results screen.
+        [self performSegueWithIdentifier:@"hackathonResultsSegue" sender:self];
     }
 }
 

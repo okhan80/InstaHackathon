@@ -78,8 +78,6 @@
     }
 }
 
-
-
 #pragma mark - Insertion of Default Core Data
 - (void)setupFetchedResultsController
 {
