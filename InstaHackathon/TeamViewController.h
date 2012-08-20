@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Event.h"
+#import "Team.h"
 
 @interface TeamViewController : UIViewController
 
@@ -38,5 +39,9 @@
 //Event properties
 @property (strong, nonatomic) NSMutableArray *categorySet;
 @property (strong, nonatomic) NSArray *teamSet;
+
+//  Team
+@property (strong, nonatomic) Team *currentTeam;
+@property (nonatomic) int teamPosition;
 
 @end

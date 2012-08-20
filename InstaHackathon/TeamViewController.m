@@ -36,8 +36,6 @@
 @synthesize categorySet = _categorySet;
 @synthesize teamSet = _teamSet;
 
-int teamPosition = 0;
-Team *currentTeam = nil;
 
 #pragma mark - Initialization
 - (void)setCurrentEvent:(Event *)currentEvent {
@@ -45,7 +43,7 @@ Team *currentTeam = nil;
         _currentEvent = currentEvent;
     }
     //  Test variables
-    _categorySet = [NSMutableArray arrayWithArray:[[currentEvent categoryList] allObjects]];
+    self.categorySet = [NSMutableArray arrayWithArray:[[currentEvent categoryList] allObjects]];
     
     NSArray *sortedTeamArray;
     sortedTeamArray = [[[currentEvent teamList] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
@@ -54,7 +52,7 @@ Team *currentTeam = nil;
         return [first compare:second];
     }];
     
-    _teamSet = sortedTeamArray;
+    self.teamSet = sortedTeamArray;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -68,6 +66,7 @@ Team *currentTeam = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.teamPosition = 0;
     [self startCountDown];
     [self updateTeamView];
 }
@@ -91,13 +90,14 @@ Team *currentTeam = nil;
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
+#pragma mark - Team Behavior
 -(void)updateTeamView {
     
-    if(teamPosition < [_teamSet count]){
-        currentTeam = [_teamSet objectAtIndex:teamPosition];
-        self.teamNameLabel.text = currentTeam.teamName;
+    if(self.teamPosition < [self.teamSet count]){
+        self.currentTeam = [self.teamSet objectAtIndex:self.teamPosition];
+        self.teamNameLabel.text = self.currentTeam.teamName;
         [self updateTeamMemberView];
-        [self displayCategories:self:currentTeam];
+        [self displayCategoriesForTeam:self.currentTeam];
         
     } else {
         //TODO Segue into final results screen.
@@ -108,23 +108,23 @@ Team *currentTeam = nil;
  * Updates the Team Member Labels based on the number of TeamMembers for the currentTeam.
  */
 - (void) updateTeamMemberView {
-    _teamMemberOneLabel.hidden = true;
-    _teamMemberTwoLabel.hidden = true;
-    _teamMemberThreeLabel.hidden = true;
+    self.teamMemberOneLabel.hidden = YES;
+    self.teamMemberTwoLabel.hidden = YES;
+    self.teamMemberThreeLabel.hidden = YES;
     
-    if([[currentTeam teamMemberList] count]>2){
-        _teamMemberThreeLabel.hidden = false;
-        _teamMemberThreeLabel.text = [self getTeamMemberDisplayText:[[[currentTeam teamMemberList] allObjects] objectAtIndex:2]];
+    if([[self.currentTeam teamMemberList] count]>2){
+        self.teamMemberThreeLabel.hidden = NO;
+        self.teamMemberThreeLabel.text = [self getTeamMemberDisplayText:[[[self.currentTeam teamMemberList] allObjects] objectAtIndex:2]];
     }
     
-    if([[currentTeam teamMemberList] count]>1){
-        _teamMemberTwoLabel.hidden = false;
-        _teamMemberTwoLabel.text = [self getTeamMemberDisplayText:[[[currentTeam teamMemberList] allObjects] objectAtIndex:1]];
+    if([[self.currentTeam teamMemberList] count]>1){
+        self.teamMemberTwoLabel.hidden = NO;
+        self.teamMemberTwoLabel.text = [self getTeamMemberDisplayText:[[[self.currentTeam teamMemberList] allObjects] objectAtIndex:1]];
     }
     
-    if([[currentTeam teamMemberList] count]>0){
-        _teamMemberOneLabel.hidden = false;
-        _teamMemberOneLabel.text = [self getTeamMemberDisplayText:[[[currentTeam teamMemberList] allObjects] objectAtIndex:0]];
+    if([[self.currentTeam teamMemberList] count]>0){
+        self.teamMemberOneLabel.hidden = NO;
+        self.teamMemberOneLabel.text = [self getTeamMemberDisplayText:[[[self.currentTeam teamMemberList] allObjects] objectAtIndex:0]];
     }
 }
 
@@ -135,86 +135,87 @@ Team *currentTeam = nil;
     return [NSString stringWithFormat:@"%@%@%@", [teamMember fullName], @" -", [teamMember company]];
 }
 
+#pragma mark - Category Behavior
 /*
  * Contains UI logic for displaying 1-4 randomized Cateogry Selection Buttons based on the passed in Team's teamOptions and the remaining number of
  * Hackathon Categories.
  *
  * NOTE: May want to consider a more flexible UI element.
  */
-- (void)displayCategories:forTeam:(Team*)team {
+- (void)displayCategoriesForTeam:(Team*)team {
     
     if([team.teamOptions intValue]==2){
-        _thirdCategoryButton.hidden = true;
-        _fourthCategoryButton.hidden = true;
+        self.thirdCategoryButton.hidden = YES;
+        self.fourthCategoryButton.hidden = YES;
         
         NSArray *randomizedCategories = [self selectUniqueRandomObjectsFromArray:2 forArray:self.categorySet];
         
         if([randomizedCategories count]==2){
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [self.secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
         } else {
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            _secondCategoryButton.hidden = true;
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            self.secondCategoryButton.hidden = YES;
         }
     }
     
     if([team.teamOptions intValue]==3){
-        _thirdCategoryButton.hidden = false;
-        _fourthCategoryButton.hidden = true;
+        self.thirdCategoryButton.hidden = NO;
+        self.fourthCategoryButton.hidden = YES;
         
         NSArray *randomizedCategories = [self selectUniqueRandomObjectsFromArray:3 forArray:self.categorySet];
         
         if([randomizedCategories count]==3){
             
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
-            [_thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [self.secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [self.thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
             
         } else if([randomizedCategories count]==2){
             
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
-            _thirdCategoryButton.hidden = true;
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [self.secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            self.thirdCategoryButton.hidden = YES;
             
         } else if([randomizedCategories count]==1){
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            _secondCategoryButton.hidden = true;
-            _thirdCategoryButton.hidden = true;
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            self.secondCategoryButton.hidden = YES;
+            self.thirdCategoryButton.hidden = YES;
         }
     }
     
     if([team.teamOptions intValue]==4){
-        _thirdCategoryButton.hidden = false;
-        _fourthCategoryButton.hidden = false;
+        self.thirdCategoryButton.hidden = NO;
+        self.fourthCategoryButton.hidden = NO;
         
         NSArray *randomizedCategories = [self selectUniqueRandomObjectsFromArray:4 forArray:self.categorySet];
         
         if([randomizedCategories count]==4){
             
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
-            [_thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
-            [_fourthCategoryButton setTitle:[[randomizedCategories objectAtIndex:3] categoryName] forState:UIControlStateNormal];
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [self.secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [self.thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
+            [self.fourthCategoryButton setTitle:[[randomizedCategories objectAtIndex:3] categoryName] forState:UIControlStateNormal];
             
         } else if([randomizedCategories count]==3){
             
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
-            [_thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
-            _fourthCategoryButton.hidden = true;
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [self.secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            [self.thirdCategoryButton setTitle:[[randomizedCategories objectAtIndex:2] categoryName] forState:UIControlStateNormal];
+            self.fourthCategoryButton.hidden = YES;
             
         } else if([randomizedCategories count]==2){
             
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            [_secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
-            _thirdCategoryButton.hidden = true;
-            _fourthCategoryButton.hidden = true;
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            [self.secondCategoryButton setTitle:[[randomizedCategories objectAtIndex:1] categoryName] forState:UIControlStateNormal];
+            self.thirdCategoryButton.hidden = YES;
+            self.fourthCategoryButton.hidden = YES;
             
         } else if([randomizedCategories count]==1){
-            [_firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
-            _secondCategoryButton.hidden = true;
-            _thirdCategoryButton.hidden = true;
-            _fourthCategoryButton.hidden = true;
+            [self.firstCategoryButton setTitle:[[randomizedCategories objectAtIndex:0] categoryName] forState:UIControlStateNormal];
+            self.secondCategoryButton.hidden = YES;
+            self.thirdCategoryButton.hidden = YES;
+            self.fourthCategoryButton.hidden = YES;
         }
     }
 }
@@ -232,12 +233,12 @@ Team *currentTeam = nil;
     }
     
     for (int i = 0; i < safeCounter; i++) {
-        int randomIndex = arc4random_uniform([_categorySet count]);
-        Category *randomCategory = [_categorySet objectAtIndex:randomIndex];
+        int randomIndex = arc4random_uniform([self.categorySet count]);
+        Category *randomCategory = [self.categorySet objectAtIndex:randomIndex];
         
         while ([randomizedCategories containsObject:randomCategory]) {
-            randomIndex = arc4random_uniform([_categorySet count]);
-            randomCategory = [_categorySet objectAtIndex:randomIndex];
+            randomIndex = arc4random_uniform([self.categorySet count]);
+            randomCategory = [self.categorySet objectAtIndex:randomIndex];
         }
         
         [randomizedCategories addObject:randomCategory];
@@ -246,26 +247,27 @@ Team *currentTeam = nil;
     return randomizedCategories;
 }
 
+#pragma mark - Button Actions
 /*
  * Action for the CategoryOne UIButton that will assign the selected Category to the Team and prepare the view for the next one.
  */
 - (IBAction)categoryOneSelected:(id)sender {
-    [self removeSelectedCategory:_firstCategoryButton.currentTitle];
+    [self removeSelectedCategory:self.firstCategoryButton.currentTitle];
     [self categoryButtonSelected];
 }
 
 - (IBAction)categoryTwoSelected:(id)sender {
-    [self removeSelectedCategory:_secondCategoryButton.currentTitle];
+    [self removeSelectedCategory:self.secondCategoryButton.currentTitle];
     [self categoryButtonSelected];
 }
 
 - (IBAction)categoryThreeSelected:(id)sender {
-    [self removeSelectedCategory:_thirdCategoryButton.currentTitle];
+    [self removeSelectedCategory:self.thirdCategoryButton.currentTitle];
     [self categoryButtonSelected];
 }
 
 - (IBAction)categoryFourSelected:(id)sender {
-    [self removeSelectedCategory:_fourthCategoryButton.currentTitle];
+    [self removeSelectedCategory:self.fourthCategoryButton.currentTitle];
     [self categoryButtonSelected];
 }
 
@@ -273,7 +275,7 @@ Team *currentTeam = nil;
  * Action that occurs when any Category Button is pressed. It will increment the global team count, update the Team View and restart the countdown.
  */
 - (void) categoryButtonSelected {
-    teamPosition++;
+    self.teamPosition++;
     [self updateTeamView];
     [self startCountDown];
 }
@@ -283,10 +285,10 @@ Team *currentTeam = nil;
  */
 - (void) removeSelectedCategory:(NSString*) categoryName {
     
-    if([_categorySet count]>0){
-        for(Category *category in _categorySet){
+    if([self.categorySet count]>0){
+        for(Category *category in self.categorySet){
             if([[category categoryName] isEqualToString:categoryName]){
-                [_categorySet removeObject:category];
+                [self.categorySet removeObject:category];
                 break;
             }
         }
@@ -339,6 +341,7 @@ Team *currentTeam = nil;
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self.audioPlayer play];
+    [self startCountDown];
     
 }
 
