@@ -9,6 +9,7 @@
 #import "TeamViewController.h"
 #import "Category.h"
 #import "Team.h"
+#import "TeamMember.h"
 
 
 @interface TeamViewController ()
@@ -23,6 +24,9 @@
 @synthesize thirdCategoryButton = _thirdCategoryButton;
 @synthesize fourthCategoryButton = _fourthCategoryButton;
 @synthesize teamNameLabel = _teamNameLabel;
+@synthesize teamMemberOneLabel = _teamMemberOneLabel;
+@synthesize teamMemberTwoLabel = _teamMemberTwoLabel;
+@synthesize teamMemberThreeLabel = _teamMemberThreeLabel;
 @synthesize countDownLabel = _countDownLabel;
 @synthesize chooseDestinyButton = _chooseDestinyButton;
 @synthesize audioPlayer = _audioPlayer;
@@ -76,6 +80,9 @@ Team *currentTeam = nil;
     [self setFourthCategoryButton:nil];
     [self setCountDownLabel:nil];
     [self setTeamNameLabel:nil];
+    [self setTeamMemberOneLabel:nil];
+    [self setTeamMemberTwoLabel:nil];
+    [self setTeamMemberThreeLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -89,14 +96,47 @@ Team *currentTeam = nil;
     if(teamPosition < [_teamSet count]){
         currentTeam = [_teamSet objectAtIndex:teamPosition];
         self.teamNameLabel.text = currentTeam.teamName;
+        [self updateTeamMemberView];
         [self displayCategories:self:currentTeam];
+        
     } else {
         //TODO Segue into final results screen.
     }
 }
 
 /*
- * Contains UI logic for displaying 1-4 randomized Cateogry Selection Buttons based on the passed in Team's teamOptions and the remaining number of 
+ * Updates the Team Member Labels based on the number of TeamMembers for the currentTeam.
+ */
+- (void) updateTeamMemberView {
+    _teamMemberOneLabel.hidden = true;
+    _teamMemberTwoLabel.hidden = true;
+    _teamMemberThreeLabel.hidden = true;
+    
+    if([[currentTeam teamMemberList] count]>2){
+        _teamMemberThreeLabel.hidden = false;
+        _teamMemberThreeLabel.text = [self getTeamMemberDisplayText:[[[currentTeam teamMemberList] allObjects] objectAtIndex:2]];
+    }
+    
+    if([[currentTeam teamMemberList] count]>1){
+        _teamMemberTwoLabel.hidden = false;
+        _teamMemberTwoLabel.text = [self getTeamMemberDisplayText:[[[currentTeam teamMemberList] allObjects] objectAtIndex:1]];
+    }
+    
+    if([[currentTeam teamMemberList] count]>0){
+        _teamMemberOneLabel.hidden = false;
+        _teamMemberOneLabel.text = [self getTeamMemberDisplayText:[[[currentTeam teamMemberList] allObjects] objectAtIndex:0]];
+    }
+}
+
+/*
+ * Builds a NSString representation of a TeamMember object in the format of fullname - companyName.
+ */
+- (NSString*) getTeamMemberDisplayText:(TeamMember*)teamMember {
+    return [NSString stringWithFormat:@"%@%@%@", [teamMember fullName], @" -", [teamMember company]];
+}
+
+/*
+ * Contains UI logic for displaying 1-4 randomized Cateogry Selection Buttons based on the passed in Team's teamOptions and the remaining number of
  * Hackathon Categories.
  *
  * NOTE: May want to consider a more flexible UI element.
@@ -206,6 +246,9 @@ Team *currentTeam = nil;
     return randomizedCategories;
 }
 
+/*
+ * Action for the CategoryOne UIButton that will assign the selected Category to the Team and prepare the view for the next one.
+ */
 - (IBAction)categoryOneSelected:(id)sender {
     [self removeSelectedCategory:_firstCategoryButton.currentTitle];
     [self categoryButtonSelected];
@@ -226,6 +269,18 @@ Team *currentTeam = nil;
     [self categoryButtonSelected];
 }
 
+/*
+ * Action that occurs when any Category Button is pressed. It will increment the global team count, update the Team View and restart the countdown.
+ */
+- (void) categoryButtonSelected {
+    teamPosition++;
+    [self updateTeamView];
+    [self startCountDown];
+}
+
+/*
+ * Void method that removes the team's selected category from the global NSMutableList of categories so they cannot be selected again by another team.
+ */
 - (void) removeSelectedCategory:(NSString*) categoryName {
     
     if([_categorySet count]>0){
@@ -238,11 +293,6 @@ Team *currentTeam = nil;
     }
 }
 
-- (void) categoryButtonSelected {
-    teamPosition++;
-    [self updateTeamView];
-    [self startCountDown];
-}
 
 #pragma mark - Timer
 - (void)startCountDown {

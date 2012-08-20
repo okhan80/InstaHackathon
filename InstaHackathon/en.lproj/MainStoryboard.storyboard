@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="u3a-47-06z">
-                                <rect key="frame" x="269" y="85" width="487" height="47"/>
+                                <rect key="frame" x="188" y="20" width="649" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,7 +143,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RLw-ir-S7F">
-                                <rect key="frame" x="364" y="185" width="297" height="195"/>
+                                <rect key="frame" x="364" y="231" width="297" height="195"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -172,6 +172,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Member 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="SIB-Vs-zoa">
+                                <rect key="frame" x="188" y="75" width="816" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Member 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="AfH-lL-07L">
+                                <rect key="frame" x="188" y="127" width="816" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Member 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="I4o-Il-YHU">
+                                <rect key="frame" x="188" y="179" width="816" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25005790727749433" green="0.24866093572845807" blue="0.25145487882653061" alpha="1" colorSpace="calibratedRGB"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -184,6 +205,9 @@
                         <outlet property="firstCategoryButton" destination="9wR-Ll-XPk" id="78b-EM-bWa"/>
                         <outlet property="fourthCategoryButton" destination="u6O-gn-km3" id="Art-TO-Cel"/>
                         <outlet property="secondCategoryButton" destination="l7G-bs-dQc" id="Rau-Ng-vWp"/>
+                        <outlet property="teamMemberOneLabel" destination="SIB-Vs-zoa" id="EXw-YP-sS3"/>
+                        <outlet property="teamMemberThreeLabel" destination="I4o-Il-YHU" id="Rkl-fd-THr"/>
+                        <outlet property="teamMemberTwoLabel" destination="AfH-lL-07L" id="PWd-Dm-qIx"/>
                         <outlet property="teamNameLabel" destination="u3a-47-06z" id="0t1-FV-pI4"/>
                         <outlet property="thirdCategoryButton" destination="nGA-Tl-VJb" id="gOA-Gr-fn5"/>
                     </connections>
@@ -236,6 +260,8 @@
                 <relationship kind="outlet" name="firstCategoryButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="fourthCategoryButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="secondCategoryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="teamMemberOneLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="teamMemberTwoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="teamNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="thirdCategoryButton" candidateClass="UIButton"/>
             </relationships>

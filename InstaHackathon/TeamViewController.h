@@ -18,15 +18,19 @@
 
 @property (strong, nonatomic) Event *currentEvent;
 
-//  Buttons for Category choices
+//Buttons for Category choices
 @property (weak, nonatomic) IBOutlet UIButton *firstCategoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *secondCategoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirdCategoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *fourthCategoryButton;
 
+//Labels
 @property (weak, nonatomic) IBOutlet UILabel *teamNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamMemberOneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamMemberTwoLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamMemberThreeLabel;
 
-//  Timer properties
+//Timer properties
 @property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
 @property (strong, nonatomic) NSTimer *countDownTimer;
 @property (nonatomic) int countDown;
