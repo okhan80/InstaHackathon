@@ -28,6 +28,7 @@
 		C120E86315DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E86215DBFF1300ADD9E3 /* NSDictionary+JSONCategories.m */; };
 		C120E86A15DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E86915DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m */; };
 		C120E88515DD41E500ADD9E3 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = C120E88415DD41E500ADD9E3 /* Category.m */; };
+		C128992D15E413A400A40B92 /* SlideShowController.m in Sources */ = {isa = PBXBuildFile; fileRef = C128992C15E413A400A40B92 /* SlideShowController.m */; };
 		C1B36EED15DE8145000B1E77 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = C1B36EEC15DE8145000B1E77 /* Team.m */; };
 		CF955E0D15E2972B00321776 /* HackathonResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF955E0C15E2972B00321776 /* HackathonResultsViewController.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,8 @@
 		C120E86915DC33CC00ADD9E3 /* NSDate+JSONDataRepresentation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONDataRepresentation.m"; sourceTree = "<group>"; };
 		C120E88315DD41E500ADD9E3 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		C120E88415DD41E500ADD9E3 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		C128992B15E413A400A40B92 /* SlideShowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SlideShowController.h; path = InstaHackathon/SlideShowController.h; sourceTree = "<group>"; };
+		C128992C15E413A400A40B92 /* SlideShowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SlideShowController.m; path = InstaHackathon/SlideShowController.m; sourceTree = "<group>"; };
 		C1B36EEB15DE8145000B1E77 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		C1B36EEC15DE8145000B1E77 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		CF955E0B15E2972B00321776 /* HackathonResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HackathonResultsViewController.h; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 		C11679FD15DAD2BA0091A0C1 = {
 			isa = PBXGroup;
 			children = (
+				C128992B15E413A400A40B92 /* SlideShowController.h */,
+				C128992C15E413A400A40B92 /* SlideShowController.m */,
 				C1167A1415DAD2BA0091A0C1 /* InstaHackathon */,
 				C1167A0B15DAD2BA0091A0C1 /* Frameworks */,
 				C1167A0915DAD2BA0091A0C1 /* Products */,
@@ -280,6 +285,7 @@
 				C120E88515DD41E500ADD9E3 /* Category.m in Sources */,
 				C1B36EED15DE8145000B1E77 /* Team.m in Sources */,
 				CF955E0D15E2972B00321776 /* HackathonResultsViewController.m in Sources */,
+				C128992D15E413A400A40B92 /* SlideShowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

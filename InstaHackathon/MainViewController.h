@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) Event *hackathonEvent;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *categoryScrollView;
+
 @end

@@ -32,6 +32,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize hackathonEvent = _hackathonEvent;
+@synthesize categoryScrollView = _categoryScrollView;
 
 - (void)viewDidLoad
 {
@@ -225,5 +226,9 @@
     }
 
     return teamMemberList;
+}
+- (void)viewDidUnload {
+    [self setCategoryScrollView:nil];
+    [super viewDidUnload];
 }
 @end
