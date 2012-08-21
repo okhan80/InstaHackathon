@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
 }
 
 - (void)viewDidUnload
@@ -58,11 +59,11 @@
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"draftOrder" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]];
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:appDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:appDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     
-    [self.fetchedResultsController performFetch:nil];
+    [_fetchedResultsController performFetch:nil];
     
-    return self.fetchedResultsController;
+    return _fetchedResultsController;
 }
 
 #pragma mark - Table View
@@ -157,7 +158,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-    [self.resultsTableView endUpdates];
+    [self.resultsTableView reloadData];
 }
 
 @end

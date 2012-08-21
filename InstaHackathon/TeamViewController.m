@@ -12,6 +12,7 @@
 #import "TeamMember.h"
 #import "NSDictionary+JSONCategories.h"
 #import "AppDelegate.h"
+#import "HackathonResultsViewController.h"
 
 //  Macro to give back background queue
 #define kBgQueueDefault dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -94,6 +95,13 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"hackathonResultsSegue"]) {
+        [(HackathonResultsViewController *)segue.destinationViewController fetchedResultsController];
+    }
 }
 
 #pragma mark - Team Behavior
