@@ -333,6 +333,7 @@
     if(self.countDown == 0) {
         [self clearCountDownTimer];
         //  Do rest of code here
+        //  
     }
     
     self.countDownLabel.text = [NSString stringWithFormat:@"%d", self.countDown];
@@ -351,15 +352,19 @@
     //    UInt32 soundID;
     //    AudioServicesCreateSystemSoundID(soundFileURLRef, &soundID);
     //    AudioServicesPlaySystemSound(soundID);
-    NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect"
-                                                                        ofType:@"mp3"]];
+
+    if(self.countDownLabel.hidden == YES) {
+        NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect"
+                                                                            ofType:@"mp3"]];
+        
+        self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+        [self.audioPlayer play];
+        [self startCountDown];
+    }
     
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [[AVAudioSession sharedInstance] setActive:YES error:nil];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [self.audioPlayer play];
-    [self startCountDown];
     
 }
 
