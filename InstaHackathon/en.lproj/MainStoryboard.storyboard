@@ -42,13 +42,13 @@
                                     <segue destination="fun-da-Cci" kind="push" identifier="teamView" id="xwF-4H-JwG"/>
                                 </connections>
                             </button>
-                            <scrollView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceHorizontal="YES" id="9wh-am-1QU" customClass="NewsTickerView">
-                                <rect key="frame" x="100" y="502" width="824" height="26"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="b0h-VG-hCp" customClass="NewsTickerView">
+                                <rect key="frame" x="82" y="498" width="860" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="2" id="AAP-hi-ijy"/>
-                                    <outlet property="delegate" destination="2" id="RNH-Kz-MfY"/>
+                                    <outlet property="dataSource" destination="2" id="DmP-mk-JMT"/>
+                                    <outlet property="delegate" destination="2" id="2qh-30-HUA"/>
                                 </connections>
                             </scrollView>
                         </subviews>
@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" title="Hackathon 2.0" id="7hz-H3-JPG"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="tickerView" destination="9wh-am-1QU" id="ZyE-oK-6w1"/>
+                        <outlet property="tickerView" destination="b0h-VG-hCp" id="49C-hm-miU"/>
                     </connections>
                 </viewController>
             </objects>

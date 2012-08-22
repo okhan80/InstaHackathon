@@ -53,21 +53,22 @@
         [self addSubview:tickerItemView];
     }
     
-    //  Create an offset wit hthe next item in the list
+    //  Create an offset with the next item in the list
     self.contentSize = CGSizeMake(xPos + self.frame.size.width + kSpacer, self.frame.size.height);
     self.contentOffset = CGPointMake(- self.frame.size.width / 2, 0);
 
     //  Create the padded view and populate it with information and have it follow the previous one
     xPos += kSpacer;
     CGFloat breakWidth = 0;
-    for(int counter = 0; breakWidth < self.frame.size.width; counter++) {
-        int i = counter % itemCount;
+    for(int theCounter = 0; breakWidth < self.frame.size.width; theCounter++) {
+        int i = theCounter % itemCount;
         NewsTickerItemView *tickerItemView = [[NewsTickerItemView alloc] init];
         [tickerItemView setTitle:[self.dataSource tickerView:self titleForItemAtIndex:i]
                            value:[self.dataSource tickerView:self valueForItemAtIndex:i]
                            image:[self.dataSource tickerView:self imageForItemAtIndex:i]];
         tickerItemView.frame = CGRectMake(xPos, 0, [tickerItemView width], self.frame.size.height);
         xPos += ([tickerItemView width] + kItemPadding);
+        breakWidth += ([tickerItemView width] + kItemPadding);
         [self addSubview:tickerItemView];
     }
 
@@ -178,17 +179,17 @@ static UIFont *valueFont = nil;
     
     self.frame = CGRectMake(0, 0, [self width], 26);
     
-    [self setNeedsDisplay];
+    //[self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect
 {
     //  Setting up graphics context
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
     CGContextFillRect(context, CGRectMake(0, 0, self.frame.size.width, self.frame.size.height));
     
-    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor blueColor].CGColor);
+    CGContextSetFillColorWithColor(UIGraphicsGetCurrentContext(), [UIColor greenColor].CGColor);
     
     //  Drawing the images, titles and values for the ticker that will be
     //  displayed inside of the scroll view

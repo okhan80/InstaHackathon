@@ -67,7 +67,7 @@
 #pragma mark - Ticker View Delegate
 - (UIColor *)backgroundColorForTickerView:(NewsTickerView *)tickerView
 {
-    return [UIColor whiteColor];
+    return [UIColor blackColor];
 }
 
 - (int)numberOfItemsForTickerView:(NewsTickerView *)tickerView
@@ -85,7 +85,7 @@
 
 - (NSString *)tickerView:(NewsTickerView *)tickerView valueForItemAtIndex:(NSUInteger)index
 {
-    return @"Test";
+    return @"";
 }
 
 - (UIImage *)tickerView:(NewsTickerView *)tickerView imageForItemAtIndex:(NSUInteger)index
@@ -94,7 +94,7 @@
 //    NSDictionary *thisDict = [self.tickerItems objectAtIndex:index];
 //    NSString *imageFileName = [[thisDict objectForKey:@"Positive"] boolValue] ? @"greenArrow" : @"redArrow";
 //    return [UIImage imageNamed:imageFileName];
-    return nil;
+    return [UIImage imageNamed:@"HACKATHON_Header_logo.png"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

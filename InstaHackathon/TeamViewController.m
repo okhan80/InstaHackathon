@@ -77,7 +77,6 @@
 	// Do any additional setup after loading the view.
     self.teamPosition = 0;
     self.countStarted = NO;
-//    [self startCountDown];
     [self updateTeamView];
 }
 
@@ -318,8 +317,9 @@
  */
 - (void) categoryButtonSelected {
     self.teamPosition++;
-    [self updateTeamView];
     [self clearCountDownTimer];
+    [self updateTeamView];
+
 }
 
 /*
@@ -341,7 +341,7 @@
 #pragma mark - Timer
 - (void)startCountDown {
     self.countStarted = YES;
-    self.countDown = 30;
+    self.countDown = 5;
     self.countDownLabel.text = [NSString stringWithFormat:@"%d", self.countDown];
     self.countDownLabel.hidden = NO;
     if(!self.countDownTimer) {
@@ -360,7 +360,23 @@
     if(self.countDown == 0) {
         [self clearCountDownTimer];
         //  Do rest of code here
-        //  
+        //  Randomly select a category and assign that to the team from the
+        //  remaining categories
+        self.currentTeam.chosenCategory = [self.randomizedCategories objectAtIndex:arc4random_uniform([self.randomizedCategories count])];
+        NSString *msg = [NSString stringWithFormat:@"You took too long!!\nYour chosen category is: %@", self.currentTeam.chosenCategory.categoryName];
+        
+        //  Alert to user to let them know what category was selected
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Out of time!" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        
+        [self removeSelectedCategory:self.currentTeam.chosenCategory.categoryName];
+        self.currentTeam.hackathonCategoryId = self.currentTeam.chosenCategory.hackathonCategoryId;
+        [self persistTeamDataToServiceForTeam:self.currentTeam];
+        [self categoryButtonSelected];
+
+
+        
     }
     
     self.countDownLabel.text = [NSString stringWithFormat:@"%d", self.countDown];
