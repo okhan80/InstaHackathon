@@ -55,12 +55,13 @@
         [self collectEventData];
     } else {
         //  Deleting all the objects fetched and then recreating it
-        for(Event *event in [self.fetchedResultsController fetchedObjects]) {
-            [self.managedObjectContext deleteObject:event];
-        }
-        NSError *error = nil;
-        [self.managedObjectContext save:&error];
-        [self collectEventData];
+//        for(Event *event in [self.fetchedResultsController fetchedObjects]) {
+//            [self.managedObjectContext deleteObject:event];
+//        }
+//        NSError *error = nil;
+//        [self.managedObjectContext save:&error];
+//        [self collectEventData];
+        self.hackathonEvent = [[self.fetchedResultsController fetchedObjects] objectAtIndex:0];
     }
     
     //  Populating an array with the list of categories
