@@ -27,9 +27,17 @@
 
 //Labels
 @property (weak, nonatomic) IBOutlet UILabel *teamNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamCompanyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamMemberOneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamMemberTwoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamMemberThreeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamNameHelpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamCompanyHelpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamMembersHelpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startButtonHelpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categorySelectionHelpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerHelpLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timerArrowHelpLabel;
 
 //Timer properties
 @property (weak, nonatomic) IBOutlet UILabel *countDownLabel;
