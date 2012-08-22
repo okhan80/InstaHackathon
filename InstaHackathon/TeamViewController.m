@@ -335,9 +335,9 @@
 - (void) categoryButtonSelected {
     self.teamPosition++;
     [self clearCountDownTimer];
+    [self updateTeamView];
     [self hideHelpDisplay:NO];
 }
-
 /*
  * Void method that removes the team's selected category from the global NSMutableList of categories so they cannot be selected again by another team.
  */
