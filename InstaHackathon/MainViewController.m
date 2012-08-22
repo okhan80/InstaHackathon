@@ -32,7 +32,8 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize hackathonEvent = _hackathonEvent;
-@synthesize categoryScrollView = _categoryScrollView;
+@synthesize tickerItems = _tickerItems;
+@synthesize tickerView = _tickerView;
 
 - (void)viewDidLoad
 {
@@ -47,21 +48,57 @@
     self.managedObjectContext = appDelegate.managedObjectContext;
     
     //  Pull data from context and then see if we need to pull from server
-
     [self setupFetchedResultsController];
-    
+//
     if(![[self.fetchedResultsController fetchedObjects] count] > 0) {
         //  There is nothing in the database so defaults will be inserted
         [self collectEventData];
     } else {
-        self.hackathonEvent = [[self.fetchedResultsController fetchedObjects] objectAtIndex:0];
+        //  Deleting all the objects fetched and then recreating it
+        for(Event *event in [self.fetchedResultsController fetchedObjects]) {
+            [self.managedObjectContext deleteObject:event];
+        }
+        NSError *error = nil;
+        [self.managedObjectContext save:&error];
+        [self collectEventData];
     }
     
-    //  See if
-    
-    //  Downloading JSON data from URL in separate thread
-    
+    //  Populating an array with the list of categories
 
+    
+}
+
+#pragma mark - Ticker View Delegate
+- (UIColor *)backgroundColorForTickerView:(NewsTickerView *)tickerView
+{
+    return [UIColor blackColor];
+}
+
+- (int)numberOfItemsForTickerView:(NewsTickerView *)tickerView
+{
+    return [self.tickerItems count];
+}
+
+- (NSString *)tickerView:(NewsTickerView *)tickerView titleForItemAtIndex:(NSUInteger)index
+{
+    //  Creating a dictionary to hold the category items
+    Category *currentCategory = [self.tickerItems objectAtIndex:index];
+    return currentCategory.categoryName;
+    
+}
+
+- (NSString *)tickerView:(NewsTickerView *)tickerView valueForItemAtIndex:(NSUInteger)index
+{
+    return @"";
+}
+
+- (UIImage *)tickerView:(NewsTickerView *)tickerView imageForItemAtIndex:(NSUInteger)index
+{
+    //  Insert image creation code here
+//    NSDictionary *thisDict = [self.tickerItems objectAtIndex:index];
+//    NSString *imageFileName = [[thisDict objectForKey:@"Positive"] boolValue] ? @"greenArrow" : @"redArrow";
+//    return [UIImage imageNamed:imageFileName];
+    return [UIImage imageNamed:@"HACKATHON_Header_logo.png"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -127,6 +164,9 @@
     
     //  Save the context
     [self.managedObjectContext save:&error];
+    
+    self.tickerItems = [NSArray arrayWithArray:[[self.hackathonEvent categoryList] allObjects]];
+    [self.tickerView reloadData];
 }
 
 #pragma mark - Category Data
@@ -228,7 +268,7 @@
     return teamMemberList;
 }
 - (void)viewDidUnload {
-    [self setCategoryScrollView:nil];
+    [self setTickerView:nil];
     [super viewDidUnload];
 }
 @end

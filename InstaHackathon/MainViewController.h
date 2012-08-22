@@ -7,13 +7,19 @@
 //
 
 #import "Event.h"
-@interface MainViewController : UIViewController
+#import "NewsTickerView.h"
+
+@interface MainViewController : UIViewController <NewsTickerViewDataSource>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) Event *hackathonEvent;
 
-@property (weak, nonatomic) IBOutlet UIScrollView *categoryScrollView;
+
+//  Displaying the news ticker
+//@property (weak, nonatomic) IBOutlet NewsTickerView *tickerView;
+@property (strong, nonatomic) NSArray *tickerItems;
+@property (weak, nonatomic) IBOutlet NewsTickerView *tickerView;
 
 @end

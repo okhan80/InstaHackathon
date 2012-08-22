@@ -42,9 +42,14 @@
                                     <segue destination="fun-da-Cci" kind="push" identifier="teamView" id="xwF-4H-JwG"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="83B-X2-v6A">
-                                <rect key="frame" x="298" y="452" width="428" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="b0h-VG-hCp" customClass="NewsTickerView">
+                                <rect key="frame" x="82" y="498" width="860" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="DmP-mk-JMT"/>
+                                    <outlet property="delegate" destination="2" id="2qh-30-HUA"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -53,7 +58,7 @@
                     <navigationItem key="navigationItem" title="Hackathon 2.0" id="7hz-H3-JPG"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="categoryScrollView" destination="83B-X2-v6A" id="lim-jp-CcN"/>
+                        <outlet property="tickerView" destination="b0h-VG-hCp" id="49C-hm-miU"/>
                     </connections>
                 </viewController>
             </objects>
@@ -385,7 +390,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
                 <relationship kind="action" name="startDraftButtonPressed:"/>
-                <relationship kind="outlet" name="categoryScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tickerView" candidateClass="NewsTickerView"/>
+            </relationships>
+        </class>
+        <class className="NewsTickerView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
             </relationships>
         </class>
         <class className="TeamViewController" superclassName="UIViewController">
