@@ -31,9 +31,17 @@
 @synthesize thirdCategoryButton = _thirdCategoryButton;
 @synthesize fourthCategoryButton = _fourthCategoryButton;
 @synthesize teamNameLabel = _teamNameLabel;
+@synthesize teamCompanyLabel = _teamCompanyLabel;
 @synthesize teamMemberOneLabel = _teamMemberOneLabel;
 @synthesize teamMemberTwoLabel = _teamMemberTwoLabel;
 @synthesize teamMemberThreeLabel = _teamMemberThreeLabel;
+@synthesize teamNameHelpLabel = _teamNameHelpLabel;
+@synthesize teamCompanyHelpLabel = _teamCompanyHelpLabel;
+@synthesize teamMembersHelpLabel = _teamMembersHelpLabel;
+@synthesize startButtonHelpLabel = _startButtonHelpLabel;
+@synthesize categorySelectionHelpLabel = _categorySelectionHelpLabel;
+@synthesize timerHelpLabel = _timerHelpLabel;
+@synthesize timerArrowHelpLabel = _timerArrowHelpLabel;
 @synthesize countDownLabel = _countDownLabel;
 @synthesize chooseDestinyButton = _chooseDestinyButton;
 @synthesize audioPlayer = _audioPlayer;
@@ -91,6 +99,14 @@
     [self setTeamMemberOneLabel:nil];
     [self setTeamMemberTwoLabel:nil];
     [self setTeamMemberThreeLabel:nil];
+    [self setTeamCompanyLabel:nil];
+    [self setTeamNameHelpLabel:nil];
+    [self setTeamCompanyHelpLabel:nil];
+    [self setTeamMembersHelpLabel:nil];
+    [self setStartButtonHelpLabel:nil];
+    [self setCategorySelectionHelpLabel:nil];
+    [self setTimerHelpLabel:nil];
+    [self setTimerArrowHelpLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -127,6 +143,7 @@
     self.teamMemberOneLabel.hidden = YES;
     self.teamMemberTwoLabel.hidden = YES;
     self.teamMemberThreeLabel.hidden = YES;
+    self.teamCompanyLabel.text = [[[[self.currentTeam teamMemberList] allObjects] objectAtIndex:0] company];
     
     if([[self.currentTeam teamMemberList] count]>2){
         self.teamMemberThreeLabel.hidden = NO;
@@ -148,7 +165,7 @@
  * Builds a NSString representation of a TeamMember object in the format of fullname - companyName.
  */
 - (NSString*) getTeamMemberDisplayText:(TeamMember*)teamMember {
-    return [NSString stringWithFormat:@"%@%@%@", [teamMember fullName], @" -", [teamMember company]];
+    return teamMember.fullName;
 }
 
 #pragma mark - Category Behavior
@@ -335,6 +352,16 @@
             }
         }
     }
+}
+
+- (void) toggleHelpDisplay:(BOOL*) toggleBoolean {
+    self.teamNameHelpLabel.hidden = *(toggleBoolean);
+    self.teamCompanyHelpLabel.hidden = *(toggleBoolean);
+    self.teamMembersHelpLabel.hidden = *(toggleBoolean);
+    self.startButtonHelpLabel.hidden = *(toggleBoolean);
+    self.categorySelectionHelpLabel.hidden = *(toggleBoolean);
+    self.timerHelpLabel.hidden = *(toggleBoolean);
+    self.timerArrowHelpLabel.hidden = *(toggleBoolean);
 }
 
 
