@@ -341,7 +341,7 @@
 #pragma mark - Timer
 - (void)startCountDown {
     self.countStarted = YES;
-    self.countDown = 5;
+    self.countDown = [self.currentEvent.roundTimeSeconds intValue];
     self.countDownLabel.text = [NSString stringWithFormat:@"%d", self.countDown];
     self.countDownLabel.hidden = NO;
     if(!self.countDownTimer) {

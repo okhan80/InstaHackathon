@@ -48,19 +48,23 @@
     self.managedObjectContext = appDelegate.managedObjectContext;
     
     //  Pull data from context and then see if we need to pull from server
-
     [self setupFetchedResultsController];
-    
+//
     if(![[self.fetchedResultsController fetchedObjects] count] > 0) {
         //  There is nothing in the database so defaults will be inserted
         [self collectEventData];
     } else {
-        self.hackathonEvent = [[self.fetchedResultsController fetchedObjects] objectAtIndex:0];
+        //  Deleting all the objects fetched and then recreating it
+        for(Event *event in [self.fetchedResultsController fetchedObjects]) {
+            [self.managedObjectContext deleteObject:event];
+        }
+        NSError *error = nil;
+        [self.managedObjectContext save:&error];
+        [self collectEventData];
     }
     
     //  Populating an array with the list of categories
-    self.tickerItems = [NSArray arrayWithArray:[[self.hackathonEvent categoryList] allObjects]];
-    [self.tickerView reloadData];
+
     
 }
 
@@ -160,6 +164,9 @@
     
     //  Save the context
     [self.managedObjectContext save:&error];
+    
+    self.tickerItems = [NSArray arrayWithArray:[[self.hackathonEvent categoryList] allObjects]];
+    [self.tickerView reloadData];
 }
 
 #pragma mark - Category Data
