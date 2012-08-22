@@ -62,10 +62,12 @@
 //        [self.managedObjectContext save:&error];
 //        [self collectEventData];
         self.hackathonEvent = [[self.fetchedResultsController fetchedObjects] objectAtIndex:0];
+        self.tickerItems = [NSArray arrayWithArray:[[self.hackathonEvent categoryList] allObjects]];
+        [self.tickerView reloadData];
+
     }
     
     //  Populating an array with the list of categories
-
     
 }
 
