@@ -24,7 +24,7 @@
 
 @interface NewsTickerView : UIScrollView
 
-@property (weak, nonatomic) IBOutlet id<NewsTickerViewDataSource> dataSource;
+@property (strong, nonatomic) IBOutlet id<NewsTickerViewDataSource> dataSource;
 
 - (void)reloadData;
 - (void)startAnimation;

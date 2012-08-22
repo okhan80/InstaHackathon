@@ -32,7 +32,8 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize fetchedResultsController = _fetchedResultsController;
 @synthesize hackathonEvent = _hackathonEvent;
-@synthesize categoryScrollView = _categoryScrollView;
+@synthesize tickerItems = _tickerItems;
+@synthesize tickerView = _tickerView;
 
 - (void)viewDidLoad
 {
@@ -57,11 +58,43 @@
         self.hackathonEvent = [[self.fetchedResultsController fetchedObjects] objectAtIndex:0];
     }
     
-    //  See if
+    //  Populating an array with the list of categories
+    self.tickerItems = [NSArray arrayWithArray:[[self.hackathonEvent categoryList] allObjects]];
+    [self.tickerView reloadData];
     
-    //  Downloading JSON data from URL in separate thread
-    
+}
 
+#pragma mark - Ticker View Delegate
+- (UIColor *)backgroundColorForTickerView:(NewsTickerView *)tickerView
+{
+    return [UIColor whiteColor];
+}
+
+- (int)numberOfItemsForTickerView:(NewsTickerView *)tickerView
+{
+    return [self.tickerItems count];
+}
+
+- (NSString *)tickerView:(NewsTickerView *)tickerView titleForItemAtIndex:(NSUInteger)index
+{
+    //  Creating a dictionary to hold the category items
+    Category *currentCategory = [self.tickerItems objectAtIndex:index];
+    return currentCategory.categoryName;
+    
+}
+
+- (NSString *)tickerView:(NewsTickerView *)tickerView valueForItemAtIndex:(NSUInteger)index
+{
+    return @"Test";
+}
+
+- (UIImage *)tickerView:(NewsTickerView *)tickerView imageForItemAtIndex:(NSUInteger)index
+{
+    //  Insert image creation code here
+//    NSDictionary *thisDict = [self.tickerItems objectAtIndex:index];
+//    NSString *imageFileName = [[thisDict objectForKey:@"Positive"] boolValue] ? @"greenArrow" : @"redArrow";
+//    return [UIImage imageNamed:imageFileName];
+    return nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -228,7 +261,7 @@
     return teamMemberList;
 }
 - (void)viewDidUnload {
-    [self setCategoryScrollView:nil];
+    [self setTickerView:nil];
     [super viewDidUnload];
 }
 @end
