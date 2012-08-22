@@ -336,9 +336,8 @@
     self.teamPosition++;
     [self clearCountDownTimer];
     [self updateTeamView];
-
+    [self hideHelpDisplay:NO];
 }
-
 /*
  * Void method that removes the team's selected category from the global NSMutableList of categories so they cannot be selected again by another team.
  */
@@ -354,14 +353,14 @@
     }
 }
 
-- (void) toggleHelpDisplay:(BOOL*) toggleBoolean {
-    self.teamNameHelpLabel.hidden = *(toggleBoolean);
-    self.teamCompanyHelpLabel.hidden = *(toggleBoolean);
-    self.teamMembersHelpLabel.hidden = *(toggleBoolean);
-    self.startButtonHelpLabel.hidden = *(toggleBoolean);
-    self.categorySelectionHelpLabel.hidden = *(toggleBoolean);
-    self.timerHelpLabel.hidden = *(toggleBoolean);
-    self.timerArrowHelpLabel.hidden = *(toggleBoolean);
+- (void) hideHelpDisplay:(BOOL) hideHelpBoolean {
+    self.teamNameHelpLabel.hidden = hideHelpBoolean;
+    self.teamCompanyHelpLabel.hidden = hideHelpBoolean;
+    self.teamMembersHelpLabel.hidden = hideHelpBoolean;
+    self.startButtonHelpLabel.hidden = hideHelpBoolean;
+    self.categorySelectionHelpLabel.hidden = hideHelpBoolean;
+    self.timerHelpLabel.hidden = hideHelpBoolean;
+    self.timerArrowHelpLabel.hidden = hideHelpBoolean;
 }
 
 
@@ -434,6 +433,7 @@
         [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
         [self.audioPlayer play];
         [self startCountDown];
+        [self hideHelpDisplay:YES];
     }
     
     
