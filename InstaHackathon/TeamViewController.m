@@ -62,9 +62,9 @@
     //  Test variables
     self.categorySet = [NSMutableArray arrayWithArray:[[currentEvent categoryList] allObjects]];
     
-    //  Creating a predicate variable to match a null value for category
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"hackathonCategoryId == %@", @""];
-    
+    //  Creating a predicate variable to match a null value for category on either server or locally
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(hackathonCategoryId == %@) OR chosenCategory = $CHOSENCATEGORY", @""];
+    predicate = [predicate predicateWithSubstitutionVariables:[NSDictionary dictionaryWithObject:[NSNull null] forKey:@"CHOSENCATEGORY"]];
     NSArray *sortedTeamArray;
     sortedTeamArray = [[[currentEvent teamList] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         NSNumber *first = [(Team*)a draftOrder];
