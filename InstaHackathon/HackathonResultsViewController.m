@@ -1,6 +1,6 @@
 //
 //  HackathonResultsViewController.m
-//  InstaHackathon
+//  InstaHackathon - new
 //
 //  Created by Dayel Ostraco on 8/20/12.
 //  Copyright (c) 2012 SPARC. All rights reserved.
@@ -45,7 +45,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-	return YES;
+	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
 #pragma mark - Fetched Results Controller and DataSource
