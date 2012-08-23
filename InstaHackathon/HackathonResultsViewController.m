@@ -1,6 +1,6 @@
 //
 //  HackathonResultsViewController.m
-//  InstaHackathon
+//  InstaHackathon - new
 //
 //  Created by Dayel Ostraco on 8/20/12.
 //  Copyright (c) 2012 SPARC. All rights reserved.
