@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24DC283C15E68B1A0093FEEE /* TeamTimersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DC283B15E68B1A0093FEEE /* TeamTimersViewController.m */; };
 		C1167A0D15DAD2BA0091A0C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A0C15DAD2BA0091A0C1 /* UIKit.framework */; };
 		C1167A0F15DAD2BA0091A0C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A0E15DAD2BA0091A0C1 /* Foundation.framework */; };
 		C1167A1115DAD2BA0091A0C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A1015DAD2BA0091A0C1 /* CoreGraphics.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24DC283A15E68B1A0093FEEE /* TeamTimersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTimersViewController.h; sourceTree = "<group>"; };
+		24DC283B15E68B1A0093FEEE /* TeamTimersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTimersViewController.m; sourceTree = "<group>"; };
 		C1167A0815DAD2BA0091A0C1 /* InstaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1167A0C15DAD2BA0091A0C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C1167A0E15DAD2BA0091A0C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24DC283815E68AA60093FEEE /* Team Timers Page */ = {
+			isa = PBXGroup;
+			children = (
+				24DC283A15E68B1A0093FEEE /* TeamTimersViewController.h */,
+				24DC283B15E68B1A0093FEEE /* TeamTimersViewController.m */,
+			);
+			name = "Team Timers Page";
+			sourceTree = "<group>";
+		};
 		C11679FD15DAD2BA0091A0C1 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +143,7 @@
 				C1167A3315DAD84A0091A0C1 /* Team Choice Page */,
 				C1167A3215DAD8450091A0C1 /* Results Page */,
 				C1167A3115DAD8200091A0C1 /* Start Page */,
+				24DC283815E68AA60093FEEE /* Team Timers Page */,
 				C1167A1515DAD2BA0091A0C1 /* Supporting Files */,
 			);
 			path = InstaHackathon;
@@ -286,6 +299,7 @@
 				C1B36EED15DE8145000B1E77 /* Team.m in Sources */,
 				CF955E0D15E2972B00321776 /* HackathonResultsViewController.m in Sources */,
 				C1B2383D15E481880029C798 /* NewsTickerView.m in Sources */,
+				24DC283C15E68B1A0093FEEE /* TeamTimersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

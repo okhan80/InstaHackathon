@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="HLe-cW-QE7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="11E2617" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="HLe-cW-QE7">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -55,14 +55,20 @@
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Hackathon 2.0" id="7hz-H3-JPG"/>
+                    <navigationItem key="navigationItem" title="Hackathon 2.0" id="7hz-H3-JPG">
+                        <barButtonItem key="leftBarButtonItem" title="Draft Results" id="G4y-8v-d2K">
+                            <connections>
+                                <segue destination="AI0-Tb-O27" kind="push" identifier="showResults" id="EV0-CI-PrG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="tickerView" destination="b0h-VG-hCp" id="49C-hm-miU"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="688" y="15"/>
+            <point key="canvasLocation" x="662" y="-609"/>
         </scene>
         <!--Team View Controller - Hackathon 2.0-->
         <scene sceneID="zNn-lW-xEU">
@@ -319,11 +325,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Team Cell Data" textLabel="hQe-Hq-0cf" detailTextLabel="4Xb-9X-g8C" style="IBUITableViewCellStyleValue1" id="Fqf-pn-45f">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Team Cell Data" textLabel="hQe-Hq-0cf" detailTextLabel="4Xb-9X-g8C" style="IBUITableViewCellStyleValue1" id="Fqf-pn-45f">
                                         <rect key="frame" x="0.0" y="22" width="733" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="733" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="713" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hQe-Hq-0cf">
@@ -334,7 +340,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Xb-9X-g8C">
-                                                    <rect key="frame" x="679" y="11" width="44" height="21"/>
+                                                    <rect key="frame" x="659" y="11" width="44" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,6 +349,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="lX2-c1-YaR" kind="push" identifier="showTeamTimers" id="8cH-9Z-vVs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -372,7 +381,86 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="3092" y="15"/>
+            <point key="canvasLocation" x="3160" y="-609"/>
+        </scene>
+        <!--Team Timers View Controller - Timers-->
+        <scene sceneID="DxA-VV-eDe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q8m-eY-TbA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Timers" id="lX2-c1-YaR" customClass="TeamTimersViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nPq-F3-hKf">
+                        <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nwL-N2-Vgo">
+                                <rect key="frame" x="466" y="44" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rYi-OP-QBA">
+                                <rect key="frame" x="243" y="161" width="539" height="241"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="192"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oqy-ZM-hDf">
+                                <rect key="frame" x="373" y="538" width="204" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="lX2-c1-YaR" eventType="touchUpInside" id="rxq-jN-nGW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1xQ-mg-jeS">
+                                <rect key="frame" x="585" y="538" width="66" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="lX2-c1-YaR" eventType="touchUpInside" id="15c-1T-A8I"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="1lr-QP-3KQ">
+                                <rect key="frame" x="409" y="599" width="207" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="1 Minute"/>
+                                    <segment title="2 Minutes"/>
+                                </segments>
+                                <connections>
+                                    <action selector="timeSelectChanged:" destination="lX2-c1-YaR" eventType="valueChanged" id="qvV-lW-RAn"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.19" alpha="1" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aTp-HF-XT4"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="startButton" destination="oqy-ZM-hDf" id="e02-G9-byf"/>
+                        <outlet property="timeSelectControl" destination="1lr-QP-3KQ" id="lTm-fh-Fjz"/>
+                        <outlet property="timerLabel" destination="rYi-OP-QBA" id="zXz-1I-hKi"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="4362" y="-609"/>
         </scene>
     </scenes>
     <resources>
@@ -399,14 +487,20 @@
                 <relationship kind="outlet" name="dataSource"/>
             </relationships>
         </class>
+        <class className="TeamTimersViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamTimersViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="resetButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="startButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="timeSelectChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeSelectControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="timerLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="TeamViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
             <relationships>
-                <relationship kind="action" name="categoryFourSelected:"/>
-                <relationship kind="action" name="categoryOneSelected:"/>
-                <relationship kind="action" name="categoryThreeSelected:"/>
-                <relationship kind="action" name="categoryTwoSelected:"/>
-                <relationship kind="action" name="chooseDestinyButtonClicked:"/>
                 <relationship kind="outlet" name="categorySelectionHelpLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="chooseDestinyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
@@ -433,4 +527,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="EV0-CI-PrG"/>
+    </inferredMetricsTieBreakers>
 </document>
