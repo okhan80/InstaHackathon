@@ -62,6 +62,10 @@
     //  Test variables
     self.categorySet = [NSMutableArray arrayWithArray:[[currentEvent categoryList] allObjects]];
     
+    //  Creating a predicate variable to match a null value for category
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"hackathonCategoryId = $HACKATHONCATEGORYID"];
+    predicate = [predicate predicateWithSubstitutionVariables:[NSDictionary dictionaryWithObject:[NSNull null] forKey:@"HACKATHONCATEGORYID"]];
+    
     NSArray *sortedTeamArray;
     sortedTeamArray = [[[currentEvent teamList] allObjects] sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
         NSNumber *first = [(Team*)a draftOrder];
@@ -69,7 +73,7 @@
         return [first compare:second];
     }];
     
-    self.teamSet = sortedTeamArray;
+    self.teamSet = [sortedTeamArray filteredArrayUsingPredicate:predicate];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {

@@ -35,9 +35,9 @@
         <relationship name="theTeam" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="teamMemberList" inverseEntity="Team" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Event" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Team" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="TeamMember" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Category" positionX="0" positionY="0" width="128" height="118"/>
+        <element name="Event" positionX="259" positionY="0" width="128" height="148"/>
+        <element name="Team" positionX="-198" positionY="0" width="128" height="178"/>
+        <element name="TeamMember" positionX="-380" positionY="17" width="128" height="118"/>
     </elements>
 </model>

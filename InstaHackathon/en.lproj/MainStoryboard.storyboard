@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9wR-Ll-XPk">
-                                <rect key="frame" x="364" y="511" width="297" height="41"/>
+                                <rect key="frame" x="147" y="517" width="297" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Category 1">
@@ -96,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l7G-bs-dQc">
-                                <rect key="frame" x="364" y="560" width="297" height="41"/>
+                                <rect key="frame" x="584" y="517" width="297" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Category 2">
@@ -110,8 +110,8 @@
                                     <action selector="categoryTwoSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="AZl-RS-hOS"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nGA-Tl-VJb">
-                                <rect key="frame" x="364" y="609" width="297" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nGA-Tl-VJb">
+                                <rect key="frame" x="147" y="643" width="297" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Category 3">
@@ -125,8 +125,8 @@
                                     <action selector="categoryThreeSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="FWb-cU-j3L"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u6O-gn-km3">
-                                <rect key="frame" x="364" y="658" width="297" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="u6O-gn-km3">
+                                <rect key="frame" x="584" y="643" width="297" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Category 4">
@@ -152,7 +152,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Choose your Destiny!" backgroundImage="7de876_mortal_kombat.png">
+                                <state key="normal" title="Choose your Destiny!" backgroundImage="HACKATHON_BLACK.png">
                                     <color key="titleColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.96004065688775508" green="0.76133670900298389" blue="0.047798467110331117" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -233,8 +233,8 @@
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="&lt;- Select a category before time runs out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7od-hh-f1Z">
-                                <rect key="frame" x="669" y="535" width="368" height="34"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a category before time runs out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7od-hh-f1Z">
+                                <rect key="frame" x="350" y="587" width="324" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -376,7 +376,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="7de876_mortal_kombat.png" width="200" height="200"/>
+        <image name="HACKATHON_BLACK.png" width="230" height="291"/>
         <image name="HACKATHON_Header_logo.png" width="230" height="291"/>
     </resources>
     <classes>
@@ -389,7 +389,6 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
-                <relationship kind="action" name="startDraftButtonPressed:"/>
                 <relationship kind="outlet" name="tickerView" candidateClass="NewsTickerView"/>
             </relationships>
         </class>
@@ -402,11 +401,6 @@
         <class className="TeamViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
             <relationships>
-                <relationship kind="action" name="categoryFourSelected:"/>
-                <relationship kind="action" name="categoryOneSelected:"/>
-                <relationship kind="action" name="categoryThreeSelected:"/>
-                <relationship kind="action" name="categoryTwoSelected:"/>
-                <relationship kind="action" name="chooseDestinyButtonClicked:"/>
                 <relationship kind="outlet" name="categorySelectionHelpLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="chooseDestinyButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
