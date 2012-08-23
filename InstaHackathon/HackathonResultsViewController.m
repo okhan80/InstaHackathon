@@ -7,6 +7,7 @@
 //
 
 #import "HackathonResultsViewController.h"
+#import "TeamTimersViewController.h"
 #import "AppDelegate.h"
 #import "Team.h"
 #import "Category.h"
@@ -46,6 +47,16 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showTeamTimers"]) {
+        
+        NSIndexPath *indexPath = [self.resultsTableView indexPathForCell:sender];
+        Team *team = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [segue.destinationViewController setCurrentTeam:team];
+    }
 }
 
 #pragma mark - Fetched Results Controller and DataSource

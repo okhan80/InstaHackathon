@@ -392,15 +392,15 @@
                         <rect key="frame" x="0.0" y="64" width="1024" height="704"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nwL-N2-Vgo">
-                                <rect key="frame" x="466" y="44" width="92" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="nwL-N2-Vgo">
+                                <rect key="frame" x="20" y="20" width="984" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="51"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rYi-OP-QBA">
-                                <rect key="frame" x="243" y="161" width="539" height="241"/>
+                                <rect key="frame" x="243" y="206" width="539" height="241"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="192"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -447,6 +447,13 @@
                                     <action selector="timeSelectChanged:" destination="lX2-c1-YaR" eventType="valueChanged" id="qvV-lW-RAn"/>
                                 </connections>
                             </segmentedControl>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Category Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="JUF-eL-PAf">
+                                <rect key="frame" x="20" y="82" width="984" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.19" alpha="1" colorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -454,7 +461,9 @@
                     <navigationItem key="navigationItem" id="aTp-HF-XT4"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="categoryLabel" destination="JUF-eL-PAf" id="rDy-av-BEr"/>
                         <outlet property="startButton" destination="oqy-ZM-hDf" id="e02-G9-byf"/>
+                        <outlet property="teamNameLabel" destination="nwL-N2-Vgo" id="JCX-Pi-tzl"/>
                         <outlet property="timeSelectControl" destination="1lr-QP-3KQ" id="lTm-fh-Fjz"/>
                         <outlet property="timerLabel" destination="rYi-OP-QBA" id="zXz-1I-hKi"/>
                     </connections>
@@ -477,6 +486,7 @@
         <class className="MainViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
             <relationships>
+                <relationship kind="action" name="startDraftButtonPressed:"/>
                 <relationship kind="outlet" name="tickerView" candidateClass="NewsTickerView"/>
             </relationships>
         </class>
@@ -492,7 +502,9 @@
                 <relationship kind="action" name="resetButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="startButtonPressed:" candidateClass="UIButton"/>
                 <relationship kind="action" name="timeSelectChanged:" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="teamNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="timeSelectControl" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="timerLabel" candidateClass="UILabel"/>
             </relationships>

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class Team;
+
 @interface TeamTimersViewController : UIViewController {
 
     NSInteger selectedTimerValue;
@@ -24,7 +26,10 @@
 - (IBAction)resetButtonPressed:(UIButton *)sender;
 - (IBAction)timeSelectChanged:(UISegmentedControl *)sender;
 
+@property (strong, nonatomic) Team *currentTeam;
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *teamNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *timeSelectControl;
 

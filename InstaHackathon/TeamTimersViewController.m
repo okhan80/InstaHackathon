@@ -7,15 +7,21 @@
 //
 
 #import "TeamTimersViewController.h"
+#import "Team.h"
+#import "Category.h"
 
 @interface TeamTimersViewController ()
 
 @end
 
 @implementation TeamTimersViewController
+@synthesize currentTeam = _currentTeam;
 @synthesize timerLabel = _timerLabel;
+@synthesize teamNameLabel = _teamNameLabel;
+@synthesize categoryLabel = _categoryLabel;
 @synthesize startButton = _startButton;
 @synthesize timeSelectControl;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +40,13 @@
     paused = NO;
     selectedTimerValue = 60;
     [self showValidCountdownLabel];
+    
+    if (_currentTeam) {
+        _teamNameLabel.text = _currentTeam.teamName;
+        _categoryLabel.text = _currentTeam.chosenCategory.categoryName;
+        
+    }
+    
 }
 
 - (void)viewDidUnload
@@ -41,6 +54,8 @@
     [self setTimerLabel:nil];
     [self setStartButton:nil];
     [self setTimeSelectControl:nil];
+    [self setTeamNameLabel:nil];
+    [self setCategoryLabel:nil];
     [super viewDidUnload];
 }
 
