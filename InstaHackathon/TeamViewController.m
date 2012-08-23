@@ -86,6 +86,7 @@
     self.teamPosition = 0;
     self.countStarted = NO;
     [self updateTeamView];
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidUnload {
