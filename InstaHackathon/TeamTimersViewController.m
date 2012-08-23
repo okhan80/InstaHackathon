@@ -41,9 +41,19 @@
     selectedTimerValue = 60;
     [self showValidCountdownLabel];
     
+    // add some awesomeness to the team name label
+    //_teamNameLabel.textColor = [UIColor whiteColor];
+    _teamNameLabel.shadowColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:.15];
+    _teamNameLabel.shadowOffset = CGSizeMake(0, -2.0);
+    
+    // clear the default labels just in case our object doesn't load.
+    _teamNameLabel.text = @"";
+    _categoryLabel.text = @"";
+    
+    // load our object details into the nice labels
     if (_currentTeam) {
         _teamNameLabel.text = _currentTeam.teamName;
-        _categoryLabel.text = _currentTeam.chosenCategory.categoryName;
+        _categoryLabel.text = [NSString stringWithFormat:@"Category: %@", _currentTeam.chosenCategory.categoryName];
         
     }
     
@@ -144,6 +154,15 @@
     [self showValidCountdownLabel];
 }
 
+-(void)stopCountdown {
+    running = NO;
+    paused = NO;
+    [_startButton setTitle:@"Start Timer" forState:UIControlStateNormal];
+    [countdownTimer invalidate];
+    countdownTimer = nil;
+    //[self showValidCountdownLabel];
+}
+
 -(void)showValidCountdownLabel {
     
     // don't touch it if we are running
@@ -192,6 +211,9 @@
     // change the font to red when we get to 10 seconds or less
     if (countdownSeconds <= 10) {
         _timerLabel.textColor = [UIColor redColor];
+    }
+    if (countdownSeconds == 0) {
+        [self stopCountdown];
     }
 }
 
