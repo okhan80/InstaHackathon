@@ -39,7 +39,7 @@
 	// Do any additional setup after loading the view.
     running = NO;
     paused = NO;
-    selectedTimerValue = 11;
+    selectedTimerValue = 60;
     [self showValidCountdownLabel];
     
     // add some awesomeness to the team name label
@@ -167,6 +167,7 @@
     [_startButton setTitle:@"Start Timer" forState:UIControlStateNormal];
     [countdownTimer invalidate];
     countdownTimer = nil;
+    _timerLabel.textColor = [UIColor whiteColor];
     [self showValidCountdownLabel];
 }
 
