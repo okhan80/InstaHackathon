@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24041FFA15E6D0810078E6C1 /* censor-beep-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 24041FF915E6D0810078E6C1 /* censor-beep-1.wav */; };
+		2404200015E7BF860078E6C1 /* censor-beep-1.aifc in Resources */ = {isa = PBXBuildFile; fileRef = 24041FFE15E7BF860078E6C1 /* censor-beep-1.aifc */; };
+		2404200115E7BF860078E6C1 /* censor-beep-1.caf in Resources */ = {isa = PBXBuildFile; fileRef = 24041FFF15E7BF860078E6C1 /* censor-beep-1.caf */; };
 		24DC283C15E68B1A0093FEEE /* TeamTimersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DC283B15E68B1A0093FEEE /* TeamTimersViewController.m */; };
 		C1167A0D15DAD2BA0091A0C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A0C15DAD2BA0091A0C1 /* UIKit.framework */; };
 		C1167A0F15DAD2BA0091A0C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1167A0E15DAD2BA0091A0C1 /* Foundation.framework */; };
@@ -36,6 +39,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		24041FF915E6D0810078E6C1 /* censor-beep-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "censor-beep-1.wav"; sourceTree = "<group>"; };
+		24041FFE15E7BF860078E6C1 /* censor-beep-1.aifc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "censor-beep-1.aifc"; sourceTree = "<group>"; };
+		24041FFF15E7BF860078E6C1 /* censor-beep-1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "censor-beep-1.caf"; sourceTree = "<group>"; };
 		24DC283A15E68B1A0093FEEE /* TeamTimersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTimersViewController.h; sourceTree = "<group>"; };
 		24DC283B15E68B1A0093FEEE /* TeamTimersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTimersViewController.m; sourceTree = "<group>"; };
 		C1167A0815DAD2BA0091A0C1 /* InstaHackathon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstaHackathon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +205,9 @@
 		C1167A3415DADAED0091A0C1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				24041FFE15E7BF860078E6C1 /* censor-beep-1.aifc */,
+				24041FFF15E7BF860078E6C1 /* censor-beep-1.caf */,
+				24041FF915E6D0810078E6C1 /* censor-beep-1.wav */,
 				C190FF6415E66F2E003C442D /* HACKATHON_BLACK.png */,
 				C1167A4115DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 */,
 				C1167A3F15DAE0F20091A0C1 /* 7de876_mortal_kombat.png */,
@@ -280,6 +289,9 @@
 				C1167A4015DAE0F20091A0C1 /* 7de876_mortal_kombat.png in Resources */,
 				C1167A4215DAE38A0091A0C1 /* 3f8b1b_MK3_Choose_Your_Destiny_Sound_Effect.mp3 in Resources */,
 				C190FF6515E66F2E003C442D /* HACKATHON_BLACK.png in Resources */,
+				24041FFA15E6D0810078E6C1 /* censor-beep-1.wav in Resources */,
+				2404200015E7BF860078E6C1 /* censor-beep-1.aifc in Resources */,
+				2404200115E7BF860078E6C1 /* censor-beep-1.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

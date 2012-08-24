@@ -21,6 +21,7 @@
 @synthesize categoryLabel = _categoryLabel;
 @synthesize startButton = _startButton;
 @synthesize timeSelectControl;
+@synthesize sysSoundTestPath;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -56,6 +57,12 @@
         _categoryLabel.text = [NSString stringWithFormat:@"Category: %@", _currentTeam.chosenCategory.categoryName];
         
     }
+    
+    //Load our sound(s)
+    NSURL *path   = [[NSBundle mainBundle] URLForResource: @"censor-beep-1" withExtension: @"aifc"];
+    sysSoundTestPath = (__bridge CFURLRef)path;
+    AudioServicesCreateSystemSoundID(sysSoundTestPath, &soundID);
+    
     
 }
 
@@ -205,16 +212,67 @@
     NSString *timeString=[dateFormatter stringFromDate:timerDate];
     _timerLabel.text = timeString;
     
-    countdownSeconds = (int) timeInterval;
-    
+    //Assign the number of seconds we have left in the countdown
+    countdownSeconds = (NSInteger) timeInterval;
     
     // change the font to red when we get to 10 seconds or less
     if (countdownSeconds <= 10) {
         _timerLabel.textColor = [UIColor redColor];
+        
     }
-    if (countdownSeconds == 0) {
+    
+    // prevent from going past 0 seconds
+    if (countdownSeconds <= 0) {
         [self stopCountdown];
     }
+    
+    // play our warning beep when we hit certain threshholds
+    if (previousCountdownSecond != countdownSeconds) {
+        
+        previousCountdownSecond = countdownSeconds;
+        
+        
+        switch (countdownSeconds) {
+            case 30:
+                [self playBeep];
+                break;
+            
+            case 10:
+                [self playBeep];
+                break;
+            case 5:
+                [self playBeep];
+                break;
+            case 4:
+                [self playBeep];
+                break;
+            case 3:
+                [self playBeep];
+                break;
+            case 2:
+                [self playBeep];
+                break;
+            case 1:
+                [self playBeep];
+                break;
+            case 0:
+                [self playBeep];
+                break;
+                
+            default:
+                break;
+        }
+        
+        
+    }
+    
+    
+}
+
+#pragma mark - Beeps
+
+-(void)playBeep {
+    AudioServicesPlaySystemSound(soundID);
 }
 
 
