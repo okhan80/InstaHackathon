@@ -167,7 +167,6 @@
     [_startButton setTitle:@"Start Timer" forState:UIControlStateNormal];
     [countdownTimer invalidate];
     countdownTimer = nil;
-    _timerLabel.textColor = [UIColor whiteColor];
     [self showValidCountdownLabel];
 }
 
@@ -191,6 +190,7 @@
         [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0.0]];
          
         _timerLabel.text =[dateFormatter stringFromDate:dateFromSeconds];
+        _timerLabel.textColor = [UIColor whiteColor];
         
     }
     
