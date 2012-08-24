@@ -30,6 +30,7 @@
 @synthesize secondCategoryButton = _secondCategoryButton;
 @synthesize thirdCategoryButton = _thirdCategoryButton;
 @synthesize fourthCategoryButton = _fourthCategoryButton;
+@synthesize fifthCategoryButton = _fifthCategoryButton;
 @synthesize teamNameLabel = _teamNameLabel;
 @synthesize teamCompanyLabel = _teamCompanyLabel;
 @synthesize teamMemberOneLabel = _teamMemberOneLabel;
@@ -111,6 +112,7 @@
     [self setCategorySelectionHelpLabel:nil];
     [self setTimerHelpLabel:nil];
     [self setTimerArrowHelpLabel:nil];
+    [self setFifthCategoryButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

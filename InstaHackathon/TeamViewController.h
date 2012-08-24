@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *secondCategoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *thirdCategoryButton;
 @property (weak, nonatomic) IBOutlet UIButton *fourthCategoryButton;
+@property (weak, nonatomic) IBOutlet UIButton *fifthCategoryButton;
 
 //Labels
 @property (weak, nonatomic) IBOutlet UILabel *teamNameLabel;
