@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @class Team;
 
@@ -14,11 +15,14 @@
 
     NSInteger selectedTimerValue;
     NSInteger countdownSeconds;
+    NSInteger previousCountdownSecond;
     NSTimer *countdownTimer;
     NSDate *targetDate;
     NSDate *pauseDate;
     BOOL paused;
     BOOL running;
+    SystemSoundID soundID;
+    
 }
 
 
@@ -32,5 +36,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *timeSelectControl;
+@property (readwrite) CFURLRef sysSoundTestPath;
 
 @end
