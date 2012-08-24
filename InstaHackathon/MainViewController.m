@@ -20,7 +20,7 @@
 #define kBGQueueHigh dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
 
 //  URL to get data from
-#define kHackathonDataURL @"http://instahackathon.elasticbeanstalk.com/hackathon/8a57f6833931012d01394b0d9bc30280"
+#define kHackathonDataURL @"http://instahackathon.elasticbeanstalk.com/hackathon/8a57f6833931012d01395904f738040b"
 
 @interface MainViewController ()
 
