@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @class Team;
 
@@ -22,6 +23,7 @@
     BOOL paused;
     BOOL running;
     SystemSoundID soundID;
+    AVAudioPlayer *audioPlayer;
     
 }
 

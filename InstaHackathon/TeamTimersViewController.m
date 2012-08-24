@@ -39,7 +39,7 @@
 	// Do any additional setup after loading the view.
     running = NO;
     paused = NO;
-    selectedTimerValue = 60;
+    selectedTimerValue = 11;
     [self showValidCountdownLabel];
     
     // add some awesomeness to the team name label
@@ -59,10 +59,18 @@
     }
     
     //Load our sound(s)
-    NSURL *path   = [[NSBundle mainBundle] URLForResource: @"censor-beep-1" withExtension: @"aifc"];
+    NSURL *path   = [[NSBundle mainBundle] URLForResource: @"censor-beep-1" withExtension: @"caf"];
     sysSoundTestPath = (__bridge CFURLRef)path;
     AudioServicesCreateSystemSoundID(sysSoundTestPath, &soundID);
     
+    
+    /*
+     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"censor-beep-1" ofType:@"caf"]];
+     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    */
     
 }
 
@@ -273,6 +281,7 @@
 
 -(void)playBeep {
     AudioServicesPlaySystemSound(soundID);
+    //[audioPlayer play];
 }
 
 
