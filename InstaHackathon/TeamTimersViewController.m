@@ -59,18 +59,19 @@
     }
     
     //Load our sound(s)
-    NSURL *path   = [[NSBundle mainBundle] URLForResource: @"censor-beep-1" withExtension: @"caf"];
-    sysSoundTestPath = (__bridge CFURLRef)path;
-    AudioServicesCreateSystemSoundID(sysSoundTestPath, &soundID);
+//    NSURL *path   = [[NSBundle mainBundle] URLForResource: @"censor-beep-1" withExtension: @"caf"];
+//    sysSoundTestPath = (__bridge CFURLRef)path;
+//    AudioServicesCreateSystemSoundID(sysSoundTestPath, &soundID);
     
     
-    /*
+    
      NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"censor-beep-1" ofType:@"caf"]];
      audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    */
+    [audioPlayer prepareToPlay];
+    
     
 }
 
@@ -280,8 +281,8 @@
 #pragma mark - Beeps
 
 -(void)playBeep {
-    AudioServicesPlaySystemSound(soundID);
-    //[audioPlayer play];
+    //AudioServicesPlaySystemSound(soundID);
+    [audioPlayer play];
 }
 
 
