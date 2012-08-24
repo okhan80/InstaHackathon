@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="HLe-cW-QE7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="HLe-cW-QE7">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
@@ -158,6 +158,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="categoryFiveSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="OHb-0l-xf1"/>
                                     <action selector="categoryFourSelected:" destination="fun-da-Cci" eventType="touchUpInside" id="SBF-4V-wT6"/>
                                 </connections>
                             </button>
@@ -255,7 +256,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select a category before time runs out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="7od-hh-f1Z">
-                                <rect key="frame" x="350" y="587" width="324" height="34"/>
+                                <rect key="frame" x="364" y="580" width="324" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -492,69 +493,6 @@
         <image name="HACKATHON_BLACK.png" width="230" height="291"/>
         <image name="HACKATHON_Header_logo.png" width="230" height="291"/>
     </resources>
-    <classes>
-        <class className="HackathonResultsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HackathonResultsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="resultsTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startDraftButtonPressed:"/>
-                <relationship kind="outlet" name="tickerView" candidateClass="NewsTickerView"/>
-            </relationships>
-        </class>
-        <class className="NewsTickerView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewsTickerView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-            </relationships>
-        </class>
-        <class className="TeamTimersViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamTimersViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="resetButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="startButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="timeSelectChanged:" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="teamNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timeSelectControl" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="timerLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TeamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="categoryFourSelected:"/>
-                <relationship kind="action" name="categoryOneSelected:"/>
-                <relationship kind="action" name="categoryThreeSelected:"/>
-                <relationship kind="action" name="categoryTwoSelected:"/>
-                <relationship kind="action" name="chooseDestinyButtonClicked:"/>
-                <relationship kind="outlet" name="categorySelectionHelpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="chooseDestinyButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="countDownLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="fifthCategoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="firstCategoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="fourthCategoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="secondCategoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startButtonHelpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamCompanyHelpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamCompanyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamMemberOneLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamMemberThreeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamMemberTwoLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamMembersHelpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamNameHelpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="teamNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="thirdCategoryButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timerArrowHelpLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="timerHelpLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
